@@ -1,0 +1,113 @@
+\lecture{02}{10 Jan 2024 11:30}{Introduction to Banach Spaces}
+\begin{definition}[Normed Linear Space]    Consider a vector space $V$ over a field $\mathbb{F}$ (either $\mathbb{R}$ or $\mathbb{C}$). A function $\|\cdot\|:V\to[0,\infty)$ is said to be a norm if it satisfies the following axioms:
+    \begin{enumerate}
+        \item [N1.] $\|x\|=0$ if and only if $x=0$.
+        \item [N2.] $\|\alpha x\|=|\alpha|\|x\|$ for all $\alpha\in\mathbb{F}$ and $x\in V$.
+        \item [N3.] $\|x+y\|\leq \|x\|+\|y\|$ for all $x,y\in V$.
+    \end{enumerate}
+    Then the vector space equipped with such a norm is called as a normed linear space.
+\end{definition}
+\vspace{0.4cm}
+\begin{motive}
+    When a norm is defined on a vector space, it induces a topology (metric topology) on the vector space. With a topological structure on $V$, we can do further analysis in $V$ such as limits of sequences, convergence, continuity of functions, etcetera.
+\end{motive}
+\vspace{0.4cm}
+\begin{remark}[]
+    If $(V,\|\cdot\|)$ is a normed linear space, then $d(x,y)=\|x-y\|:V\times V\to[0,\infty)$ is a metric on $V$:
+    \begin{enumerate}
+        \item [M1.] $d(x,y)=0\iff \|x-y\|=0\iff x-y=\iff x=y$
+        \item [M2.] $d(x,y)=|-1|\|x-y\| = \|y-x\|=d(y,x)$
+        \item [M3.] $
+            d(x,z)=\|x-z\| = \|x-y+y-z\|
+            \leq \|x-y\|+\|y-z\|
+            =d(x,y)+d(y,z)$
+    \end{enumerate}
+    Equipped with this metric, $(V,d)$ is a metric space, and we can define an open subset of $V$ as follows:\\ 
+    $U\subseteq V$ is said to be open if for all $x$ in $U$, there exists an $r>0$ such that $$B(x,r):=\{y\in V\mid d(x,y)<r\}\subseteq U$$
+    The collection of these open subsets defines a topology on $V$.
+\end{remark}
+\vspace{0.4cm}
+\begin{recall}
+    \begin{itemize}
+        \item []
+        \item In a normed linear space $(V,\|\cdot\|)$, if a sequence $x_{n}$ converges to $x$ and another sequence $y_{n}$ converges to $y$, then the sequence $x_{n}+y_{n}$ converges to $x+y$.
+        \item If $\alpha_{n}$ is a sequnce in $\mathbb{F}$ that converges to $\alpha$ and $x_{n}$ is a sequence in $V$ that converges to $x$, then the sequence $\alpha_{n}x_{n}$ converges to $\alpha x$.
+        \item Therefore, addition and scalar multiplication are continuous maps in the topological spaces induced by a norm.
+    \end{itemize}
+\end{recall}
+\vspace{0.4cm}
+\begin{motive}
+    Now that we have a metric space structure on $V$, we can talk about completeness (every Cauchy sequence converges).
+\end{motive}
+\vspace{0.4cm}
+\begin{definition}[Banach Spaces]
+    A normed linear space $(V,\|\cdot\|)$ is said to be a Banach Space if and only if $(V,d)$ is a complete metric space. That is, every Cauchy sequence in $V$ converges in the metric space $(V,d)$.
+\end{definition}
+\vspace{0.4cm}
+\begin{recall}
+    \begin{itemize}
+        \item []
+        \item \textbf{H\"older's inequality:}\\ 
+            \hypertarget{holder}{Let $p,p*$ be real numbers such that $\frac{1}{p}+\frac{1}{p*}=1$. Let $x,y\in \mathbb{R}^{n}$. Then the following inequality holds: $$|\langle x,y\rangle|=\sum_{i=1}^{n}\leq \|x\|_{p}\cdot\|y\|_{p*}$$}
+            Notice that when $p=2$, we have $|\langle x,y\rangle|\leq\|x\|_{2}\cdot\|y\|_{2}$.
+        \item \textbf{Minkowski's inequality:}\\ 
+            \hypertarget{minkowski}{For any $1\leq p<\infty$, and $x,y\in \mathbb{R}^{n}$, we have the following inequality: $$\|x+y\|_{p}\leq\|x\|_{p}+\|y\|_{p}$$}
+        \item \textbf{Jensen's Inequality}:\\ 
+            \hypertarget{jensen}{For any pair of real numbers $x,y\in \mathbb{R}$, the following inequality holds: $$|a+b|^{p}\leq2^{p-1}(a^{p}+b^{p})$$}
+    \end{itemize}
+
+\end{recall}
+
+\begin{eg}
+    \begin{enumerate}
+        \item []
+        \item $V=\mathbb{R}^{n}$, with the Euclidean norm $\|x\|=\left(\sum_{i=1}^{n}|x_{i}|^{2}\right)^{\frac{1}{2}}$ is a Banach space.
+        \item For $1\leq p<\infty$, and $V=\mathbb{R}^{N}$, define $\|x\|_{p}=\left(\sum_{i=1}^{n}|x_{i}|^{p}\right)^{\frac{1}{p}}$, then $(V,\|\cdot\|_{p})$ is a Banach space.
+            \begin{proof}
+                First we need to prove that $\|\cdot\|_{p}$ is a norm on $\mathbb{R}^{N}$. That follows from \hyperlink{minkowski}{Minkowski's inequality}.\\
+                Then we need to prove the completeness of $(V,\|\cdot\|_{p})$. Suppose $x^{(n)}$ is a Cauchy sequence in $V$, then for every $\epsilon>0$, there exists a natural number $t$ such that\\
+                $\|x^{(n)}-x^{(m)}\|_{p}<\epsilon$ whenever $m,n>t$\\ 
+                $\implies \left(\sum_{i=1}^{n}\left|x^{(n)}_{i}-x_{i}^{(m)}\right|^{p}\right)^{\frac{1}{p}  }<\epsilon$ whenever $m,n>t$\\ 
+                $\implies |x_{i}^{(n)}-x_{i}^{(m)}|<\epsilon$ whenever $m,n>t$\\
+                $\implies x_{i}^{(n)}$ is a Cauchy sequence in $\mathbb{R}$, hence convergent (since $\mathbb{R}$ is complete), to a real number, say $x_{i}$.\\
+                Construct $x=(x_{1},x_{2},\cdots,x_{N})\in \mathbb{R}^{N}$. We claim that $x^{(n)}$ converges to $x$ in $\mathbb{R}^{N}$.\\ 
+                We have $|x_{i}^{(n)}-x_{i}^{(m)}|<\epsilon$ whenever $m,n>t$ for each $i$. Now, fix $n$ and take $m\to\infty$.
+                That implies $|x_{i}^{(n)}-x_{i}|<\epsilon$ whenever $n>t$ for each $i$ and any $\epsilon$.
+                Therefore, with appropriate $\epsilon$, the finite sum $\left(\sum_{i=1}^{n}\left|x^{(n)}_{i}-x_{i}\right|^{p}\right)^{\frac{1}{p}  }<\epsilon$\\
+                Hence, for every $\epsilon>0$, there is a suitable natural number $t$ such that $\|x^{(n)}-x\|<\epsilon$ whenever $n>t$. Hence every Cauchy sequence in $(\mathbb{R}^{N},\|\cdot\|_{p})$ converges.\\
+                Hence $(\mathbb{R}^{N},\|\cdot\|_{p})$ is a Banach space.
+            \end{proof}
+        \item $\bm{\ell_{p}}$ \textbf{spaces}\\
+            For $1\leq p<\infty$, define a collection of sequences as follows:$$\ell_{p}:=\left\{x=(x_{1},x_{2},\cdots)\mid x_{i}\in\mathbb{F}, \sum_{i=1}^{\infty}|x_{i}|^{p}<\infty\right\}$$
+            Now, define a norm on $\ell_{p}$ as $\|x\|_{p}=\left(\sum_{i=1}^{\infty}|x_{i}|^{p}\right)^{\frac{1}{p}}$. It is easy to verify that this is indeed a norm on $\ell_{p}$. Then $(\ell_{p},\|\cdot\|_{p})$ is a Banach space.\vspace{0.3cm}\\
+            \begin{proof}
+                \textbf{Claim:} $\ell_{p}$ is a vector space over $\mathbb{F}$.\\ 
+                If $x,y\in\ell_{p}$, then from the \hyperlink{jensen}{Jensen's Inequality}, we have\\ 
+                $|x_{i}+y_{i}|^{p}\leq (|x_{i}|+|y_{i}|)^{p}\leq 2^{p-1}\left(|x_{i}|^{p}+|y_{i}|^{p}\right)$\\
+                Since $x,y\in\ell_{p}$, the right hand side is finite, hence $|x_{i}+y_{i}|^{p}$ is finite, and hence $x+y\in\ell_{p}$.\\ 
+                The set is trivially closed under scalar multiplication. Hence $\ell_{p}$ is a vector space over $\mathbb{F}$.
+                \vspace{0.3cm}\\
+                \textbf{Claim:} $(\ell_{p},\|\cdot\|_{p})$ is a Banach space.\\
+                Let $x^{(n)}$ be a Cauchy sequence in $\ell_{p}$, then for every $\epsilon>0$, there exists a natural number $t$ such that $\|x^{(n)}-x^{(m)}\|<\epsilon$ whenever $m,n>t$.\\ 
+                $\implies \sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}^{(m)}|^{p}<\epsilon^{p}$ whenever $m,n>t$.\\ 
+                $\implies |x_{i}^{(n)}-x_{i}^{(m)}|<\epsilon$ for each $i$ whenever $m,n>t$.\\ 
+                Hence, $x_{i}^{(n)}$ is a Cauchy sequence of real numbers. Due to completeness of $\mathbb{R}$, it must converge, and it converges to, say $x_{i}.$\\ 
+                Construct a sequence $x = (x_{1}, x_{2},...)$ using the above $x_{i}.$\vspace{0.3cm}\\
+                \textbf{Claim:} $x\in\ell_{p}$.\\
+                Now, every Cauchy sequence is bounded. Therefore, $x^{(n)}$ is bounded. Hence, there exists a $c\in\mathbb{R}^{+}$ such that $\sum_{i=1}^{\infty}|x_{i}^{(n)}|^{p}\leq c$ for each $n$.\\ 
+                Hence, it is also true that $\sum_{i=1}^{k}|x_{i}^{(n)}|^{p}\leq c$ for each $n$.\\ 
+                Takeing the limit as $n\to\infty$ for this finite sum, we obtain that $\sum_{i=1}^{k}|x_{i}|^{p}\leq c$.\\
+                Since the right side is independent of $k$, it follows that as $k\to\infty$, we obtain $\sum_{i=1}^{\infty}|x_{i}|^{p}\leq c$.\\ 
+                Hence $x\in\ell_{p}$.\vspace{0.3cm}\\ 
+                \textbf{Claim:} $x^{(n)}$ converges to $x$.\\
+                We have $\|x^{(n)}-x^{(m)}\|<\epsilon$ whenever $m,n>t$.\\ 
+                That is, $\left(\sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}^{(m)}|^{p}\right)^{\frac{1}{p}}<\epsilon$ whenever $m,n>t$.\\ 
+                Fix $n>t$, and take the limit $m\to\infty$.\\ 
+                Then the inequality becomes $\left(\sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}|^{p}\right)^{\frac{1}{p}}<\epsilon$\\
+                Hence $\|x^{(n)}-x\|<\epsilon$ for all $n>t$, hence $x^{(n)}$ converges to $x$.\vspace{0.3cm}\\ 
+                Hence $(\ell_{p},\|\cdot\|_{p})$ is a Banach space.
+            \end{proof}
+    \end{enumerate}
+\end{eg}
+\vspace{0.4cm}
+
