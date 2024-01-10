@@ -1,0 +1,59 @@
+\lecture{03}{10 Jan 2024 10:30}{Reparametrizations}
+
+\begin{theorem}[Inverse Function Theorem (a particular case)]
+    Let $U\subseteq\mathbb{R}^{n}$, and $f:U\to\mathbb{R}$ be a smooth function. Let $x\in U$ be such that for the Jacobian $D(f)(x)$ of $f$ at $x$, the determinant is $\det[D(f)(x)]\neq0$, then there exists a neighborhood $W$ of $x$ in $U$ such that the restriction $f|_{W}:W\to f(W)$ is a diffeomorphism.
+\end{theorem}
+\vspace{0.4cm}
+\begin{note}[]
+    Notice that this theorem gives a local property. That is, with the given hypothesis, we can only really claim that there exists a neighborhood upon which the restriction is a diffeomorphism. However, if the Jacobian of $f$ has non-zero determinant at each $x$ in $U$, then we cannot claim that $f$ is a diffeomorphsim.
+\end{note}
+\vspace{0.4cm}
+\begin{eg}[]
+    $U=\mathbb{R}\backslash\{0\}$ and $f:U\to\mathbb{R}$ given by $f(x)=x^{2}$ satisfies the hypothesis, yet is not a diffeomorphism from $U$ to $f(U)$, it is not even injective.
+\end{eg}
+\vspace{0.4cm}
+\begin{observe}[]
+    However, if $U$ happens to be a connected, and $f$ is smooth, then the above hypothesis is sufficient to claim that $f$ is a diffeomorphism from $U$ to $f(U)$.
+\end{observe}
+\vspace{0.4cm}
+\begin{definition}[Unit Speed Reparametrization]
+    For the intervals $I, J$, let $\gamma:I\to \mathbb{R}^{n}$ be a curve, let $\phi:J\to I$ be a diffeomorphism such that the reparametrization $\beta=\gamma\circ\phi:J\to\mathbb{R}^{n}$ has the property that $|\beta'(s)|=1$ for each $s\in J$. Then the reparametrization $\beta$ is said to be unit speed reparametrization.
+\end{definition}
+\vspace{0.4cm}
+\begin{note}[]
+    Notice that when a curve is reparametrized, the trace/image of the curve remains the same.
+\end{note}
+\vspace{0.4cm}
+\begin{note}[Condition for a reparametrization to be unit speed]
+    If $\beta=\gamma\circ\phi$ is a reparametrization of the curve $\gamma$ with the diffeomorphism $\phi$ as in the above setting, then $$\begin{aligned}[]
+        |\beta'(s)|=1&\implies|\gamma'(\phi(s))||\phi'(s)| = 1\\ 
+                     &\implies \boxed{|\phi'(s)|=\frac{1}{|\gamma'(\phi(s))|}}
+    \end{aligned}
+    $$
+\end{note}
+\vspace{0.4cm}
+\begin{definition}[Arc Length Function]
+    Let $I$ be an interval, and $t_{0}\in I$ be a fixed element. Let $\gamma$ be a regular curve defined on $I$. Then the Arc Length function $L_{\gamma}:I\to\mathbb{R}$ is defined as $$L_{\gamma}(t)=\int_{t_{0}}^{t}|\gamma'(t)|\,dt$$
+\end{definition}
+\vspace{0.4cm}
+\begin{property}[Properties of $L_{\gamma}$]
+    \begin{enumerate}
+        \item []
+        \item $L_{\gamma}'(t)=|\gamma'(t)|$ (It is differentiable).
+        \item Since $\gamma(t)$ is regular, $\gamma'(t)$ is nowhere $0$, and hence $|\gamma'(t)|$ is continuous, hence $L_{\gamma}'(t)$ is continuous and consequently, smooth.
+        \item $L'_{\gamma}(t)>0$ on the interval $I$, that implies that $L_{\gamma}$ is diffeomorphism from $I$ to $L_{\gamma}(I):=J$.
+        \item Let $S_{\gamma}=L_{\gamma}^{-1}:J\to I$ be the inverse of $L_{\gamma}$ (exists because $\gamma$ is a diffeomorphism, also note that $S_{\gamma}$ is a diffeomorphism).\\ 
+            Consider the reparametrization $\beta=\gamma\circ S_{\gamma}$, it follows that $$|\beta'(s)|=|\gamma'(S_{\gamma}(s))||S_{\gamma}'(s)|\quad\quad\quad(*)$$
+            From the chain rule, we have $$S_{\gamma}'(s)=\frac{1}{L_{\gamma}'(S_{\gamma}'(s))}=\frac{1}{\gamma'(S_{\gamma}(s))}\quad~~(**)$$\\ 
+            $(*)$ and $(**)$ imply that $|\beta'(s)|=1$ for all $s\in J$, hence $\beta$ is a unit speed reparametrization.
+    \end{enumerate}
+\end{property}
+\vspace{0.4cm}
+\begin{theorem}[]
+    Given an interval $I$, and any regular curve $\gamma:I\to\mathbb{R}^{n}$, there exists an interval $J$ and a diffeomorphism $\phi:J\to I$ such that the reparametrization $\beta=\gamma\circ\phi$ is a unit speed parametrization.
+\end{theorem}
+\begin{proof}
+    The proof follows from $4.$ in the above properties of $L_{\gamma}$, where\\
+    $J = L_{\gamma}(I)$, and $\phi = L_{\gamma}^{-1}=S_{\gamma}$
+\end{proof}
+\vspace{0.4cm}
