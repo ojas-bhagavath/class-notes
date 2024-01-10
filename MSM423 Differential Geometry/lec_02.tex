@@ -1,0 +1,54 @@
+\lecture{02}{08 Jan 2024 10:30}{Curves and Surfaces}
+\begin{observe}
+    Consider the level set of $F(x,y)=x^2+y^2$, $L_{1}(f)=S^1$. As seen before, since $\frac{\partial F}{\partial x}=2x\neq 0$ when $x\neq 0$, for any point $(x_0,y_0)$ in $S^1$, where $x_0\neq0$, we obtain a neighborhood in $S^1$ such that the curve (level set) can be written as a graph of a function $y=g(x)$.\\
+    Let $S^{1+}$ denote $(\mathbb{R}\times\mathbb{R}^{+})\cap S^{1}$, the upper half of the unit circle. Now, for a point in $S^{1+}$, the corresponding $g(x)$ is $\sqrt{1-x^2}$.\\
+    Now the graph of $g$, say $G_{g}$ is a function from $(-1,1)$ to $S^{1+}$, and we can easily talk about continuity, differentiablity of $G_{g}$.\\
+    However, notice that $G_{g}$ is a surjection, and an inverse exists, $G_{g}^{-1}:S^{1+}\to(-1,1)$.\\
+    To talk about continuity of $G_{g}^{-1}$ we need to define a topology on $S^{1+}$, and the subspace topology is the most obvious choice.\\
+    This $G_{g}^{-1}$ happens to be continuous when we consider the subspace topology on $S^{1+}$. Further, open subsets of $S^{1+}$ homeomorphic to the open subsets of $\mathbb{R}$, that means that this topological space is locally homeomorphic to $\mathbb{R}$, but the same does not extend to the whole space, that is, there is no homeomorphism from $S^{1+}$ to $\mathbb{R}$.
+\end{observe}
+\vspace{0.4cm}
+\begin{note}
+    Notice that we cannot talk about differentiablity of $S^{1+}$ in the above immediately, as differentiability requires some sort of vector space structure.
+\end{note}
+
+\vspace{0.4cm}
+\begin{eg}[]
+    Consider $S_{3}^{1}:=\{(x,y,z)\in\mathbb{R}^{3}\mid x^2+y^2+z^2=1\}$\\ 
+    Doing the same analysis on this set as before using the Implicit function theorem, we obtain that that after removing the appropriate critical points, and giving a topology to whatever remains, we obtain patches obtain open sets in whatever remains that are homeomorphic to open subsets of $\mathbb{R}^{2}$, hence the topological subspace obtained after removing the critical points is locally homeomorphic to $\mathbb{R}^{2}$.
+\end{eg}
+\vspace{0.4cm}
+\begin{definition}[Tangent to a smooth curve at a point]
+    Let $I$ be an open interval in $\mathbb{R}$, and $\gamma:I\to\mathbb{R}^{n}$ be a smooth curve given by $\gamma(t)=(x_{1}(t),x_{2}(t),\cdots,x_{n}(t))$, then for a point $t\in I$, the tangent of the curve at $t$ is defined as $$\gamma'(t)=(x_{1}'(t),x_{2}'(t),\cdots,x_{n}'(t))$$
+\end{definition}
+\vspace{0.4cm}
+\begin{definition}[Regular Curve]
+        A smooth curve $\gamma:I\to\mathbb{R}^{n}$ is said to be a regular curve if $\gamma'(t)\neq0~\forall t\in I$.
+\end{definition}
+\vspace{0.4cm}
+\begin{definition}[Diffeomorphism]
+    Let $A$ and $B$ be two manifolds, and a function $f:A\to B$ is said to be a diffeomorphism if $f$ is bijective, differentiable, and the inverse $f^{-1}:B\to A$ is differentiable as well.
+\end{definition}
+\vspace{0.4cm}
+\begin{note}[]
+    In this course, by smooth, we mean a $C^{\infty}$ function.
+\end{note}
+\vspace{0.4cm}
+\begin{definition}[Reparametrization of a Curve]
+    Let $J, I$ be open intervals of $\mathbb{R}$, let $\gamma:I\to\mathbb{R}^{n}$ be a curve, and let $\phi:J\to I$ be a diffeomorphism. Then $\beta=\gamma\circ\phi:J\to\mathbb{R}^{n}$ is a curve on $J$ called as reparametrization of $\gamma$.
+\end{definition}
+\vspace{0.4cm}
+\begin{observe}[]
+    If $\beta$ is a reparametrization of $\gamma$, and the setup is as above, then $\beta(s)=\gamma\circ\phi(s)$ for each $s\in J$. Then $$\beta'(s)=\gamma'(\phi(s))\cdot\phi'(s)$$
+    Now, $\phi$ is a diffeomorphism and $(\phi\circ\phi^{-1})' = 1$ and by chain rule, we have $(\phi^{-1})'=\frac{1}{\phi'}$. And since $(\phi^{-1})'$ exists throughout $I$, $\phi'$ cannot be $0$ on $J$, hence $\gamma'(s)\neq0$.\\ 
+    Hence if $\gamma$ is regular, then so is $\beta$, hence regularity is preserved under a diffeomorphism.
+\end{observe}
+\vspace{0.4cm}
+\begin{definition}[Arc Length of a Curve]
+    Let $\gamma:I\to\mathbb{R}^{n}$ be a regular parametrized curve. For fixed $t_1,t_2\in I$, the arc length between $t_{1}$ and $t_{2}$ is given by $$\begin{aligned}[]
+        L_{\gamma}(t_1,t_2)&=\int_{t_1}^{t_2}||\gamma'(t)||\,dt\\
+                           &=\int_{t_1}^{t_2}\sqrt{(x_1'(t))^{2}+(x_2'(t))^{2}+\cdots+(x_n'(t))^{2}}\,dt
+    \end{aligned}
+    $$
+\end{definition}
+

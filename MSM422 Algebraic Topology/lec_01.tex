@@ -1,0 +1,62 @@
+\lecture{01}{04 Jan 2024 10:00}{Final Topology, and its Universal Property}
+
+\begin{prop}
+    Let $(X_i,\mathcal{T}_i)$ be a collection of topological spaces, and $Y$ be any set.\\
+    Let $f_i:X_i\to Y$ be a collection of functions.\\
+    Define $\mathcal{T}:=\{U\subseteq Y \mid f_i^{-1}(U)\in\mathcal{T}_i~\forall i\}$, then
+    \begin{enumerate}
+        \item $\mathcal{T}$ is a topolgy on $Y$.
+        \item $\mathcal{T}$ is the largest (finest) topology on $Y$ such that each $f_i$ is continuous.
+        \item If $Z$ is any topological space and if $g:Y\to Z$ is any function, then $g$ is continuous if and only if each $g\circ f_i$ is continuous.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    ~\\
+    \begin{enumerate}
+        \item Trivial.
+        \item Each $f_i$ is clearly continuous by the definitoin of continuity.\\
+            If $\mathcal{T}$' is any topology on $Y$ such that each $f_i$ is continuous, then for any $U\in \mathcal{T}'$, it follows that $f_{i}^{-1}(U)\in\mathcal{T}_i$ for each $i$, hence $U\in\mathcal{T}$by definition, hence $\mathcal{T}'\subseteq\mathcal{T}$.
+        \item If $g$ is continuous, then clearly $g\circ f_i$ is continuous as it is a composition of two continuous functions. Conversely, if $g\circ f_i$ is continous for each $i$, then for any open subset $W$ of $Z$,\\
+            $(g\circ f_{i})^{-1}=f_i^{-1}\circ g^{-1}(W)$ is open in $X_i$ for each $i$.\\
+            Hence $f_{i}^{-1}(g^{-1}(W))\in\mathcal{T}_i$ for each $i$, hence $g^{-1}(W)\in\mathcal{T}$.\\
+            Therefore $g$ is continuous.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}[Final Topology]
+    Let $(Y_i,\mathcal{T}_i)$ be a collection of topological space, and let $(X,\mathcal{T})$ be a topological space.\\
+    Let $f_i:Y_i\to X$ be a collection of functions.
+    $\mathcal{T}$ is said to be final topology on $X$ with respect to $\{f_i\}$ if $\mathcal{T}$ is the finest topology on $X$ with respect to which each $f_i$ is continous. That is,
+\begin{itemize}
+        \item $\mathcal{T}$ makes each $f_i$ continuous.
+        \item If $\mathcal{T}'$ is any other topology on $X$ that makes each $f_i$ continuous, then $\mathcal{T}'\subseteq\mathcal{T}$
+\end{itemize}
+\end{definition}
+\vspace{5mm}
+\begin{theorem}[Universal Property of Final Topology]
+    Let $(X,\mathcal{T}), (Y_i,\mathcal{T}_i)$ be a collection of topological spaces, and let $f_i:Y_i\to X$ be a collection of functions. Then
+    \begin{enumerate}
+        \item Let $(Z,\mathcal{U})$ be a topological space, and let $g:X\to Z$ be a function. If $\mathcal{T}$ is the final topology on $X$ with respect to $\{f_i\}$, then $g$ is continous if and only if $g\circ f_i$ is continuous for each $i$.
+        \item If for each topological space $(Z,\mathcal{U})$ and each function $g:X\to Z$, it holds that $g$ is continuous if and only if $g\circ f_i$ is continous for each $i$, then $\mathcal{T}$ has to be the final topology on $X$ with respect to $\{f_i\}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+     
+\end{proof}
+\vspace{0.4cm}
+\begin{definition}[Quotient Topology]
+    Let $(X,\mathcal{T}$ and $(Y,\mathcal{U})$ be two topological spaces, a function $f:X\to Y$ is said to be a quotient map if $f$ is surjective and $\mathcal{U}$ is the largest topology on $Y$ such that $f$ is continuous. Then $\mathcal{U}$ is said to be the quotient topology on $Y$ with respect to $f$.
+\end{definition}
+\vspace{0.4cm}
+\begin{remark}[]
+    Quotient topology is the final topology with respect to a single function $f$.\\ 
+    If $(X,\mathcal{T}_{X})$ is a topological space and $Y$ is a set, and $f:X\to Y$ is a surjective function then the quotient topology on $Y$ with respect to $x$ is defined as $$\mathcal{T}_{Y}:=\{U\subseteq Y\mid f^{-1}(U)\in \mathcal{T}_{X}\}$$
+\end{remark}
+\vspace{0.4cm}
+\begin{theorem}[]
+    Let $f(X,\mathcal{T}_{X})\to(Y,\mathcal{T}_{Y})$ be a continuous open surjection, then $\mathcal{T}_{Y}$ is the quotient topology on $Y$ with respect to $f$.
+\end{theorem}
+\vspace{0.4cm}
+\begin{theorem}[]
+    Let $f(X,\mathcal{T}_{X})\to(Y,\mathcal{T}_{Y})$ be a continuous closed surjection, then $\mathcal{T}_{Y}$ is the quotient topology on $Y$ with respect to $f$.
+\end{theorem}

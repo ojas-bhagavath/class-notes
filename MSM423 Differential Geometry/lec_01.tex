@@ -1,0 +1,56 @@
+\lecture{01}{05 Jan 2024 10:30}{Introduction to Curves and Surfaces}
+
+\begin{definition}[Curves]
+    Let $I$ be an open interval in $\mathbb{R}$. A smooth parametrized curve in $\mathbb{R}^n$ is a smooth map $\gamma:I\to\mathbb{R}^n$.\\
+    The image $\gamma(I)\subseteq\mathbb{R}^n$ is called trace of the curve $\gamma$.
+\end{definition}
+\vspace{0.4cm}
+\begin{eg}
+    $\gamma_1,\gamma_2:\mathbb{R}\to\mathbb{R}^2$, defined as $\gamma_1(t)=(\cos(t),\sin(t))$ and $\gamma_2(t)=(\sin(3t),\cos(3t))$ have the same trace, but they are different curves.
+\end{eg}
+\vspace{0.4cm}
+\begin{observe}
+    Consider any circle in $\mathbb{R}^2$, it is the set of all points in $\mathbb{R}^2$ satisfying a certain quadratic equation.\\
+    It can also be viewed as a trace of some curve.
+\end{observe}
+\vspace{0.4cm}
+\begin{definition}[Level Set]
+    Let $U\subseteq\mathbb{R}^n$ be any open set, and $f:U\to\mathbb{R}$ be any function.\\
+    Then for a given constant $c\in\mathbb{R}$, the level set is defined as$$L_{c}(f):=\{X \in U \mid f(X)=c\} \subseteq U \subseteq\mathbb{R}^n$$
+\end{definition}
+\vspace{0.4cm}
+\begin{eg}
+    Let $U=\mathbb{R}^2$, and $f(x,y)=x^2+y^2$, then\\ 
+    $L_{0}(f)={(0,0)}$, a point,\\
+    $L_{1}(f)=S^{1}=\{(x,y)\in\mathbb{R}^2\mid x^2+y^2=1\}$, a circle in $\mathbb{R}^2$,\\
+    $L_{-1}(f)=\varnothing$.
+\end{eg}
+\vspace{0.4cm}
+\begin{definition}[Graph]
+    Let $A$ and $B$ be any sets. Let $f:A\to B$ be a function, then the graph of $f$ is the function $G_{f}:A\to A\times B$, given by$$G_f(x)=(x,f(a))\in A\times B$$
+\end{definition}
+\vspace{0.4cm}
+\begin{note}
+    Notice that a graph is also a curve, and if $f$ is a smooth function, then $G_f$ is a smooth curve.
+\end{note}
+\vspace{0.4cm}
+\begin{theorem}[Implicit Function Theorem (2D Case)]
+    Let $F:\mathbb{R}^2\to\mathbb{R}$ be a continuous function defining a curve $F(x,y)=c$.\\ 
+    Let $(x_0,y_0)$ be a point on the curve.
+    \begin{itemize}
+        \item If $\frac{\partial F}{\partial x}(x_0,y_0)\neq 0$, then there exists a neighborhood around $(x_0,y_0)$ where we can write $y=f(x)$ for a real valued function $f(x)$. That is, the curve $F(x,y)=c$ behaves like the graph of $y=f(x)$ in that neighborhood.
+        \item If $\frac{\partial F}{\partial y}(x_0,y_0)\neq 0$, then there exists a neighborhood around $(x_0,y_0)$ where we can write $x=f(y)$ for a real valued function $f(x)$. That is, the curve $F(x,y)=c$ behaves like the graph of $x=g(x)$ in that neighborhood.
+    \end{itemize}
+\end{theorem}
+\vspace{0.4cm}
+\begin{eg}
+    Consider $S^1=L_1(x^2+y^2)=\{(x,y)\mid x^2+y^2=1\}$\\ 
+    Here, $F(x,y)=x^2+y^2$, and $\frac{\partial F}{\partial x}=2x\neq 0$ when $x\neq0$.\\ 
+    Therefore, for any point $(x_0,y_0)$ in $S^1$, where such that $x_0\neq0$, there exists a neighborhood in which $x=g(y)$.
+\end{eg}
+\vspace{0.4cm}
+\begin{note}
+    It is worthwhile to notice that a graph is always a curve. Implicit function theorem gives a condition on when a curve (level set in particular) can be seen as the graph of a curve.
+\end{note}
+\vspace{0.4cm}
+

@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'differential_geometry.blg'
+[62] biber:340> INFO - === Wed Jan 10, 2024, 07:17:57
+[78] Biber.pm:419> INFO - Reading 'differential_geometry.bcf'
+[158] Biber.pm:979> INFO - Found 3 citekeys in bib section 0
+[173] Biber.pm:4419> INFO - Processing section 0
+[188] Biber.pm:4610> INFO - Looking for bibtex file '../../references.bib' for section 0
+[189] bibtex.pm:1713> INFO - LaTeX decoding ...
+[204] bibtex.pm:1519> INFO - Found BibTeX data source '../../references.bib'
+[243] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[243] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[244] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[244] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[247] bbl.pm:660> INFO - Writing 'differential_geometry.bbl' with encoding 'UTF-8'
+[249] bbl.pm:763> INFO - Output to differential_geometry.bbl

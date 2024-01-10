@@ -1,0 +1,103 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{docarmo}{book}{}
+      \name{author}{1}{}{%
+        {{hash=8cdfb237b7d5baf36e225cea088d4b55}{%
+           family={Do\bibnamedelima Carmo},
+           familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={M.\bibnamedelimi P.},
+           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Dover Publications}%
+      }
+      \strng{namehash}{8cdfb237b7d5baf36e225cea088d4b55}
+      \strng{fullhash}{8cdfb237b7d5baf36e225cea088d4b55}
+      \strng{bibnamehash}{8cdfb237b7d5baf36e225cea088d4b55}
+      \strng{authorbibnamehash}{8cdfb237b7d5baf36e225cea088d4b55}
+      \strng{authornamehash}{8cdfb237b7d5baf36e225cea088d4b55}
+      \strng{authorfullhash}{8cdfb237b7d5baf36e225cea088d4b55}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Differential Geometry of Curves and Surfaces}
+      \field{year}{2016}
+      \true{nocite}
+    \endentry
+    \entry{lee1}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ca861e05628527cf05a2870e8fc0ecef}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={J.\bibnamedelimi M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{ca861e05628527cf05a2870e8fc0ecef}
+      \strng{fullhash}{ca861e05628527cf05a2870e8fc0ecef}
+      \strng{bibnamehash}{ca861e05628527cf05a2870e8fc0ecef}
+      \strng{authorbibnamehash}{ca861e05628527cf05a2870e8fc0ecef}
+      \strng{authornamehash}{ca861e05628527cf05a2870e8fc0ecef}
+      \strng{authorfullhash}{ca861e05628527cf05a2870e8fc0ecef}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Introduction to Smooth Manifolds}
+      \field{year}{2013}
+      \true{nocite}
+    \endentry
+    \entry{tu1}{book}{}
+      \name{author}{1}{}{%
+        {{hash=e89009a6128ca9f717f2783dd1d5d58d}{%
+           family={Tu},
+           familyi={T\bibinitperiod},
+           given={L.\bibnamedelimi W.},
+           giveni={L\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{e89009a6128ca9f717f2783dd1d5d58d}
+      \strng{fullhash}{e89009a6128ca9f717f2783dd1d5d58d}
+      \strng{bibnamehash}{e89009a6128ca9f717f2783dd1d5d58d}
+      \strng{authorbibnamehash}{e89009a6128ca9f717f2783dd1d5d58d}
+      \strng{authornamehash}{e89009a6128ca9f717f2783dd1d5d58d}
+      \strng{authorfullhash}{e89009a6128ca9f717f2783dd1d5d58d}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{An Introduction to Manifolds}
+      \field{year}{2011}
+      \true{nocite}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,102 @@
+% Edit the maketitle command
+\usepackage{titling} % Enables editing the \maketitle command
+\renewcommand{\maketitle}{
+    \begin{center}
+        \Huge\bfseries
+        \thetitle\\
+        \vspace{4mm}
+        \Large
+        \theauthor
+    \end{center}
+    \vspace{1.5cm}
+}
+\author{Ojas G Bhagavath}
+
+\usepackage{xifthen} % Extended conditional commands
+\makeatother
+\def\@lecture{}%
+\newcommand{\lecture}[3]{
+    \ifthenelse{\isempty{#3}}{%
+        \def\@lecture{Lecture #1 \hfill #2\vspace{0.4cm}}%
+    }{%
+        \def\@lecture{Lecture #1: #3 \hfill #2\vspace{0.4cm}}%
+    }%
+    \subsection*{\@lecture}
+}
+\makeatletter
+
+\usepackage[backend=biber]{biblatex}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=red,urlcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc} % Accept different input encodings
+\usepackage[T1]{fontenc} % Standard package for selecting font encodings
+\usepackage{textcomp} % LATEX support for the Text Companion fonts
+\usepackage{url} % Verbatim with URL-sensitive line breaks
+\usepackage{graphicx} % Enhanced support for graphics
+\usepackage{float} % Improved interface for floating objects
+\usepackage{booktabs} % Publication quality tables in LaTeX
+\usepackage{enumitem} % Control layout of itemize, enumerate, description
+\usepackage{parskip} %Layout with zero \parindent, non-zero \parskip
+\usepackage{emptypage} % Make empty pages really empty
+\usepackage{subcaption} % Support for sub-caption
+\usepackage{multicol} % Intermix single and multiple columns
+\usepackage{xcolor} % Driver-independent color extensions for LATEX and pdfLATEX
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb, mathrsfs} % Packages related to math
+\usepackage{cancel} % Place lines through maths formulae
+\usepackage{bm} % Access bold symbols in math mode
+\usepackage{systeme} % Format systems of equations
+\usepackage{mdframed} %Framed environments that can split at page boundaries
+\usepackage{fancyhdr} % For fancy headers and footers
+\usepackage{todonotes} % todonotes and inline notes in fancy boxes
+\usepackage{tcolorbox} % Colored boxes for LaTeX
+\usepackage{import} % Establish input relative to a directory
+\usepackage{pdfpages} % Include PDF documents in LaTeX
+\usepackage{transparent} % Using a color stack for transparency with pdfTEX
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{varwidth}
+\usepackage[margin=0.75in]{geometry}
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\varnothing}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+
+
+\newtheoremstyle{unbreak}%
+{}
+{}%
+{\upshape}
+{}%
+{\bfseries}
+{:}% % Note that final punctuation is omitted.
+{0.5em}
+{}
+
+\newtheoremstyle{break}%
+{}%
+{}%
+{\upshape}
+{}%
+{\bfseries\itshape}
+{:}% % Note that final punctuation is omitted.
+{\newline}
+{}
+
+\theoremstyle{break}
+\newmdtheoremenv[nobreak=true]{theorem}{Theorem}
+\newmdtheoremenv[nobreak=true]{definition}{Definition}
+\newmdtheoremenv[nobreak=true]{prop}{Proposition}
+\newmdtheoremenv[nobreak=true]{corollary}{Corollary}
+\newtheorem*{recall}{Recall}
+
+\theoremstyle{unbreak}
+\newtheorem*{eg}{Example}
+\newtheorem*{motive}{Motivation}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{problem}{Problem}
+\newtheorem*{observe}{Observe}
+\newtheorem*{property}{Property}
