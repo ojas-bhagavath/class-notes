@@ -2,7 +2,8 @@
 *
 
 # ...except
-!.gitignore
-!.tex
-!.pdf
-!.bib
+!*/
+!*.gitignore
+!*.tex
+!*.pdf
+!*.bib
