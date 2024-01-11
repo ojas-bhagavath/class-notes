@@ -48,66 +48,82 @@
     \begin{itemize}
         \item []
         \item \textbf{H\"older's inequality:}\\ 
-            \hypertarget{holder}{Let $p,p*$ be real numbers such that $\frac{1}{p}+\frac{1}{p*}=1$. Let $x,y\in \mathbb{R}^{n}$. Then the following inequality holds: $$|\langle x,y\rangle|=\sum_{i=1}^{n}\leq \|x\|_{p}\cdot\|y\|_{p*}$$}
-            Notice that when $p=2$, we have $|\langle x,y\rangle|\leq\|x\|_{2}\cdot\|y\|_{2}$.
+            \hypertarget{holder}{Let $p,p*\in[1,\infty]$ such that $\frac{1}{p}+\frac{1}{p*}=1$ (such a pair of real numbers is called \textbf{conjugate exponents} of each other). For a $p\in[1,\infty)$, define a function from $\mathbb{R}^{N}$ to $\mathbb{R}$ as: $$\|x\|_{p}=\left(\sum_{i=1}^{N}|x_{i}|^{p}\right)^{\frac{1}{p}}$$ and for $p=\infty$, define another a function from $\mathbb{R}^{N}$ to $\mathbb{R}$ as: $$\|x\|_{\infty}=\max_{1\leq i\leq N}(x_{i})$$
+                Let $x=(x_{1},\cdots,x_{N}),y=(y_{1},\cdots,y_{N})\in \mathbb{R}^{N}$.\\
+            Then the following inequality holds: $$\sum_{i=1}^{N}|x_{i}y_{i}|\leq\|x\|_{p}\|y\|_{p*}$$}
         \item \textbf{Minkowski's inequality:}\\ 
-            \hypertarget{minkowski}{For any $1\leq p<\infty$, and $x,y\in \mathbb{R}^{n}$, we have the following inequality: $$\|x+y\|_{p}\leq\|x\|_{p}+\|y\|_{p}$$}
+            \hypertarget{minkowski}{For any $p\in[1,\infty]$, and $x,y\in \mathbb{R}^{N}$, we have the following inequality: $$\|x+y\|_{p}\leq\|x\|_{p}+\|y\|_{p}$$}
         \item \textbf{Jensen's Inequality}:\\ 
             \hypertarget{jensen}{For any pair of real numbers $x,y\in \mathbb{R}$, the following inequality holds: $$|a+b|^{p}\leq2^{p-1}(a^{p}+b^{p})$$}
     \end{itemize}
 
 \end{recall}
 
+\begin{eg}[$p$-norm on $\mathbb{R}^{N}$]
+    For any $p\in[1,\infty]$, $(\mathbb{R}^{N},\|\cdot\|_{p})$ is a Banach space.
+    \begin{proof}
+        First we need to prove that $\|\cdot\|_{p}$ is a norm on $\mathbb{R}^{N}$.\\ 
+        This follows from the \hyperlink{minkowski}{Minkowski's inequality}.
+        \begin{note}
+            This is usually called as $p$-norm on $\mathbb{R}^{N}$, and the special case when $p=2$ is called the Euclidean norm.
+        \end{note}
+        Then we need prove the completeness of $(\mathbb{R}^{N},\|\cdot\|_{p})$. First we prove for $p\in[1,\infty)$ case.\\
+        Suppose $x^{(n)}$ is a Cauchy sequence in the NLS. Then for each $\epsilon>0$, there exists a natural number $t$ such that $\|x^{(n)}-x^{(m)}\|_{p}<\epsilon$ whenever $m,n>t$. That is, $m,n>t$ implies that $$\sum_{i=1}^{N}\left|x^{(n)}_{i}-x_{i}^{(m)}\right|^{p}<\epsilon^{p}$$
+        Hence $\left|x_{i}^{(n)}-x_{i}^{(m)}\right|<\epsilon$ whenever $m,n>t$. That means $x_{i}^{(n)}$ is a Cauchy sequence in $\mathbb{R}$, hence converges (since $\mathbb{R}$ is complete) to a point, say $x_{i}\in \mathbb{R}$.\\
+        Let $x=(x_{1},x_{2},\cdots,x_{N})\in \mathbb{R}^{N}$, where each $x_{i}$ are defined as above. We claim that $x^{(n)}$ converges to $x$.\\ 
+        We have the inequality $|x_{i}^{(n)}-x_{i}^{(m)}|<\epsilon^{p}$ whenever $m,n>t$.\\ 
+        Fix $n$, and take the limit as $m\to\infty$, we obtain $|x_{i}^{(n)}-x_{i}|\leq\epsilon^{p}$.\\ 
+        Therefore, after an appropriate adjustment, we obtain an $\epsilon'$, such that for any $\epsilon>0$, there exists a natural number $t$ such that $n>t$ implies that the finite sum satisfies the inequality $$\left(\sum_{i=1}^{N}\left|x_{i}^{(n)}-x_{i}\right|^{p}\right)^{\frac{1}{p}}=\|x^{(n)}-x\|_{p}<\epsilon'$$
+        Hence $x^{(n)}$ converges to $x$.
+        Therefore, every Cauchy sequence in $(\mathbb{R}^{N},\|\cdot\|_{p})$ converges, hence it is a Banach space when $p\in[1,\infty)$.\\ 
+        When $p=\infty$, as convergence and Cauchy criterion hold if and only if they hold componentwise in $\mathbb{R}^{N}$, $(\mathbb{R}^{N},\|\cdot\|_{\infty})$ is Banach as well.
+    \end{proof}
+\end{eg}
+\begin{note}
+    Due to completeness of $\mathbb{C}$, for any $p\in[1,\infty)$, $(\mathbb{C},\|\cdot\|_{p})$ is a Banach space as well.
+\end{note}
+\vspace{0.4cm}
+\begin{eg}[$\bm{\ell_{p}}$ \textbf{spaces}]
+    For $1\leq p<\infty$, define a collection of sequences as follows:$$\ell_{p}:=\left\{x=(x_{1},x_{2},\cdots)\mid x_{i}\in\mathbb{F}, \sum_{i=1}^{\infty}|x_{i}|^{p}<\infty\right\}$$
+    Now, define a function from $\ell_{p}$ to $\mathbb{F}$ as $\|x\|_{p}=\left(\sum_{i=1}^{\infty}|x_{i}|^{p}\right)^{\frac{1}{p}}$. Then $(\ell_{p},\|\cdot\|_{p})$ is a Banach space.
+    \begin{proof} The proof proceeds in several steps:
+        \begin{enumerate}
+            \item $\bm{\ell_{p}}$ \textbf{is a vector space.} 
+                \begin{proof}
+                    Let $x,y\in\ell_{p}$, then from the Jensen's inequality, we have $$|x_{i}+y_{i}|^{p}\leq(|x_{i}|+|y_{i}|)^{p}\leq 2^{p-1}(|x_{i}|^{p}+|y_{i}|^{p})<\infty$$
+                    and for any $\alpha\in \mathbb{F}$ and $x\in\ell_{p}$, $\alpha x$ clearly belongs to $\ell_{p}$.\\ 
+                    Hence $\ell_{p}$ is a subspace of the space of all sequences in $\mathbb{F}$.
+                \end{proof}
+            \item $\bm{\|\cdot\|_{p}}$\textbf{ is a norm on }$\bm{\ell_{p}}$\textbf{.}
+                \begin{proof}
+                    The first two axioms of a norm are trivial to prove. We need to show the triangle inequality.\\ 
+                    Let $x,y\in\ell_{p}$, then for any natural number $N$, from \hyperlink{minkowski}{Minkowski's Inequality}, we have $$\sum_{i=1}^{N}|x_{i}+y_{i}|^{p}\leq\left[\left(\sum_{i=1}^{N}|x_{i}|^{p}\right)+\left(\sum_{i=1}^{N}|y_{i}|^{p}\right)\right]^{p}\leq\left[\|x\|_{p}+\|y\|_{p}\right]^{p}<\infty$$
+                    Since $N$ is arbitrary, and the right side is independent of the choice of $N$, it follows that $$\sum_{i=1}^{\infty}|x_{i}+y_{i}|^{p}\leq\left[\|x\|_{p}+\|y\|_{p}\right]^{p}<\infty$$
+                    Hence the triangle inequality holds, and hence $\|\cdot\|_{p}$ is a norm on $\ell_{p}$.
+                \end{proof}
+            \item $\bm{(\ell_{p},\|\cdot\|_{p})}$\textbf{ is a complete space.}
+                \begin{proof}
+                    Let $x^{(n)}$ be a Cauchy sequence in the NLS, that is, for each $\epsilon>0$, there exists a natural number $t$ such that $\|x_{i}^{(n)}-x^{(m)}\|_{p}<\epsilon$ whever $m,n>t$. That is, $m,n>t$ implies that $$\sum_{i=1}^{\infty}\|x_{i}^{(n)}-x_{i}^{(m)}\|<\epsilon^{p}$$ 
+                Hence $\left|x_{i}^{(n)}-x_{i}^{(m)}\right|<\epsilon$ whenever $m,n>t$, hence $x_{i}^{(n)}$ is a Cauchy sequence in $\mathbb{R}$, hence converges (since $\mathbb{R}$ is complete) to a point, say $x_{i}\in \mathbb{R}$.\\ 
+                Construct a sequence $x=(x_{1},x_{2}\cdots x_{n},\cdots)$ where $x_{i}$ is defined as above.\\
+                We need to show that $x\in\ell_{p}$. Since $x^{(n)}$ is a Cauchy sequence, it is bounded, hence there exists a constant $C>0$ such that $$\|x^{(n)}\|_{p}^{p}=\sum_{i=1}^{\infty}\left|x_{i}^{(n)}\right|^{p}\leq C\leq C,~\forall n.$$
+                Let $k$ be any fixed positive integer. Then, $$\sum_{i=1}^{k}\left|x_{i}^{(n)}\right|^{p}\leq C$$ which implies that $$\sum_{i=1}^{k}\left|x_{i}\right|^{p}\leq C.$$
+                Since $k$ is arbitrary and the right side does not depend on it, it follows that $$\sum_{i=1}^{\infty}\left|x_{i}\right|^{p}\leq C<\infty.$$
+                Hence $x\in\ell_{p}$.\\ 
+                Now we need to show that $x^{(n)}$ converges to $x$. From before, whenever $m,n>t$, we have $$\sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}^{(m)}|^{p}<\epsilon^{p}.$$
+                Hence, for any positive integer $k$, and whenever $m,n>t$, we have $$\sum_{i=1}^{k}|x_{i}^{(n)}-x_{i}^{(m)}|^{p}<\epsilon^{p}.$$
+                Fix $n>t$, and take the limit $m\to\infty$, we obtain $$\sum_{i=1}^{k}|x_{i}^{(n)}-x_{i}|^{p}<\epsilon^{p}.$$
+                Since $k$ is arbitrary and the right side does not depend on it, hence whenever $n>t$, we have $$\|x^{(n)}-x\|_{p}\leq \epsilon.$$
+                That is, $x^{(n)}$ converges to $x$.
+                Hence every Cauchy sequence in $(\ell_{p},\|\|_{p})$ converges, hence it is Banach.
+                \end{proof}
+        \end{enumerate}
+        \phantom\qedhere
+    \end{proof}
+\end{eg}
+\vspace{0.4cm}
 \begin{eg}
-    \begin{enumerate}
-        \item []
-        \item $V=\mathbb{R}^{n}$, with the Euclidean norm $\|x\|=\left(\sum_{i=1}^{n}|x_{i}|^{2}\right)^{\frac{1}{2}}$ is a Banach space.
-        \item For $1\leq p<\infty$, and $V=\mathbb{R}^{N}$, define $\|x\|_{p}=\left(\sum_{i=1}^{n}|x_{i}|^{p}\right)^{\frac{1}{p}}$, then $(V,\|\cdot\|_{p})$ is a Banach space.
-            \begin{proof}
-                First we need to prove that $\|\cdot\|_{p}$ is a norm on $\mathbb{R}^{N}$. That follows from \hyperlink{minkowski}{Minkowski's inequality}.\\
-                Then we need to prove the completeness of $(V,\|\cdot\|_{p})$. Suppose $x^{(n)}$ is a Cauchy sequence in $V$, then for every $\epsilon>0$, there exists a natural number $t$ such that\\
-                $\|x^{(n)}-x^{(m)}\|_{p}<\epsilon$ whenever $m,n>t$\\ 
-                $\implies \left(\sum_{i=1}^{n}\left|x^{(n)}_{i}-x_{i}^{(m)}\right|^{p}\right)^{\frac{1}{p}  }<\epsilon$ whenever $m,n>t$\\ 
-                $\implies |x_{i}^{(n)}-x_{i}^{(m)}|<\epsilon$ whenever $m,n>t$\\
-                $\implies x_{i}^{(n)}$ is a Cauchy sequence in $\mathbb{R}$, hence convergent (since $\mathbb{R}$ is complete), to a real number, say $x_{i}$.\\
-                Construct $x=(x_{1},x_{2},\cdots,x_{N})\in \mathbb{R}^{N}$. We claim that $x^{(n)}$ converges to $x$ in $\mathbb{R}^{N}$.\\ 
-                We have $|x_{i}^{(n)}-x_{i}^{(m)}|<\epsilon$ whenever $m,n>t$ for each $i$. Now, fix $n$ and take $m\to\infty$.
-                That implies $|x_{i}^{(n)}-x_{i}|<\epsilon$ whenever $n>t$ for each $i$ and any $\epsilon$.
-                Therefore, with appropriate $\epsilon$, the finite sum $\left(\sum_{i=1}^{n}\left|x^{(n)}_{i}-x_{i}\right|^{p}\right)^{\frac{1}{p}  }<\epsilon$\\
-                Hence, for every $\epsilon>0$, there is a suitable natural number $t$ such that $\|x^{(n)}-x\|<\epsilon$ whenever $n>t$. Hence every Cauchy sequence in $(\mathbb{R}^{N},\|\cdot\|_{p})$ converges.\\
-                Hence $(\mathbb{R}^{N},\|\cdot\|_{p})$ is a Banach space.
-            \end{proof}
-        \item $\bm{\ell_{p}}$ \textbf{spaces}\\
-            For $1\leq p<\infty$, define a collection of sequences as follows:$$\ell_{p}:=\left\{x=(x_{1},x_{2},\cdots)\mid x_{i}\in\mathbb{F}, \sum_{i=1}^{\infty}|x_{i}|^{p}<\infty\right\}$$
-            Now, define a norm on $\ell_{p}$ as $\|x\|_{p}=\left(\sum_{i=1}^{\infty}|x_{i}|^{p}\right)^{\frac{1}{p}}$. It is easy to verify that this is indeed a norm on $\ell_{p}$. Then $(\ell_{p},\|\cdot\|_{p})$ is a Banach space.\vspace{0.3cm}\\
-            \begin{proof}
-                \textbf{Claim:} $\ell_{p}$ is a vector space over $\mathbb{F}$.\\ 
-                If $x,y\in\ell_{p}$, then from the \hyperlink{jensen}{Jensen's Inequality}, we have\\ 
-                $|x_{i}+y_{i}|^{p}\leq (|x_{i}|+|y_{i}|)^{p}\leq 2^{p-1}\left(|x_{i}|^{p}+|y_{i}|^{p}\right)$\\
-                Since $x,y\in\ell_{p}$, the right hand side is finite, hence $|x_{i}+y_{i}|^{p}$ is finite, and hence $x+y\in\ell_{p}$.\\ 
-                The set is trivially closed under scalar multiplication. Hence $\ell_{p}$ is a vector space over $\mathbb{F}$.
-                \vspace{0.3cm}\\
-                \textbf{Claim:} $(\ell_{p},\|\cdot\|_{p})$ is a Banach space.\\
-                Let $x^{(n)}$ be a Cauchy sequence in $\ell_{p}$, then for every $\epsilon>0$, there exists a natural number $t$ such that $\|x^{(n)}-x^{(m)}\|<\epsilon$ whenever $m,n>t$.\\ 
-                $\implies \sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}^{(m)}|^{p}<\epsilon^{p}$ whenever $m,n>t$.\\ 
-                $\implies |x_{i}^{(n)}-x_{i}^{(m)}|<\epsilon$ for each $i$ whenever $m,n>t$.\\ 
-                Hence, $x_{i}^{(n)}$ is a Cauchy sequence of real numbers. Due to completeness of $\mathbb{R}$, it must converge, and it converges to, say $x_{i}.$\\ 
-                Construct a sequence $x = (x_{1}, x_{2},...)$ using the above $x_{i}.$\vspace{0.3cm}\\
-                \textbf{Claim:} $x\in\ell_{p}$.\\
-                Now, every Cauchy sequence is bounded. Therefore, $x^{(n)}$ is bounded. Hence, there exists a $c\in\mathbb{R}^{+}$ such that $\sum_{i=1}^{\infty}|x_{i}^{(n)}|^{p}\leq c$ for each $n$.\\ 
-                Hence, it is also true that $\sum_{i=1}^{k}|x_{i}^{(n)}|^{p}\leq c$ for each $n$.\\ 
-                Takeing the limit as $n\to\infty$ for this finite sum, we obtain that $\sum_{i=1}^{k}|x_{i}|^{p}\leq c$.\\
-                Since the right side is independent of $k$, it follows that as $k\to\infty$, we obtain $\sum_{i=1}^{\infty}|x_{i}|^{p}\leq c$.\\ 
-                Hence $x\in\ell_{p}$.\vspace{0.3cm}\\ 
-                \textbf{Claim:} $x^{(n)}$ converges to $x$.\\
-                We have $\|x^{(n)}-x^{(m)}\|<\epsilon$ whenever $m,n>t$.\\ 
-                That is, $\left(\sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}^{(m)}|^{p}\right)^{\frac{1}{p}}<\epsilon$ whenever $m,n>t$.\\ 
-                Fix $n>t$, and take the limit $m\to\infty$.\\ 
-                Then the inequality becomes $\left(\sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}|^{p}\right)^{\frac{1}{p}}<\epsilon$\\
-                Hence $\|x^{(n)}-x\|<\epsilon$ for all $n>t$, hence $x^{(n)}$ converges to $x$.\vspace{0.3cm}\\ 
-                Hence $(\ell_{p},\|\cdot\|_{p})$ is a Banach space.
-            \end{proof}
-    \end{enumerate}
+    Consider the set of sequences $$\ell_{\infty}:=\left\{x=(x_{i})\mid x_{i}\in \mathbb{F}, \sup_{1\leq i<\infty}|x_{i}|<\infty\right\},$$ clearly it is a vector space under componentwise addition and scalar multiplication. Also define the function $$\|x\|_{\infty}=\sup_{1\leq i<\infty}|x_{i}|$$. Then $\|x\|_{\infty}$ is a norm on $\ell_{\infty}$ and $(\ell_{\infty},\|\cdot\|_{\infty})$ is a Banach space.
 \end{eg}
 \vspace{0.4cm}
 
