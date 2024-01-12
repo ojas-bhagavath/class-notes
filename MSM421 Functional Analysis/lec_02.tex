@@ -104,18 +104,18 @@
             \item $\bm{(\ell_{p},\|\cdot\|_{p})}$\textbf{ is a complete space.}
                 \begin{proof}
                     Let $x^{(n)}$ be a Cauchy sequence in the NLS, that is, for each $\epsilon>0$, there exists a natural number $t$ such that $\|x_{i}^{(n)}-x^{(m)}\|_{p}<\epsilon$ whever $m,n>t$. That is, $m,n>t$ implies that $$\sum_{i=1}^{\infty}\|x_{i}^{(n)}-x_{i}^{(m)}\|<\epsilon^{p}$$ 
-                Hence $\left|x_{i}^{(n)}-x_{i}^{(m)}\right|<\epsilon$ whenever $m,n>t$, hence $x_{i}^{(n)}$ is a Cauchy sequence in $\mathbb{R}$, hence converges (since $\mathbb{R}$ is complete) to a point, say $x_{i}\in \mathbb{R}$.\\ 
-                Construct a sequence $x=(x_{1},x_{2}\cdots x_{n},\cdots)$ where $x_{i}$ is defined as above.\\
-                We need to show that $x\in\ell_{p}$. Since $x^{(n)}$ is a Cauchy sequence, it is bounded, hence there exists a constant $C>0$ such that $$\|x^{(n)}\|_{p}^{p}=\sum_{i=1}^{\infty}\left|x_{i}^{(n)}\right|^{p}\leq C\leq C,~\forall n.$$
-                Let $k$ be any fixed positive integer. Then, $$\sum_{i=1}^{k}\left|x_{i}^{(n)}\right|^{p}\leq C$$ which implies that $$\sum_{i=1}^{k}\left|x_{i}\right|^{p}\leq C.$$
-                Since $k$ is arbitrary and the right side does not depend on it, it follows that $$\sum_{i=1}^{\infty}\left|x_{i}\right|^{p}\leq C<\infty.$$
-                Hence $x\in\ell_{p}$.\\ 
-                Now we need to show that $x^{(n)}$ converges to $x$. From before, whenever $m,n>t$, we have $$\sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}^{(m)}|^{p}<\epsilon^{p}.$$
-                Hence, for any positive integer $k$, and whenever $m,n>t$, we have $$\sum_{i=1}^{k}|x_{i}^{(n)}-x_{i}^{(m)}|^{p}<\epsilon^{p}.$$
-                Fix $n>t$, and take the limit $m\to\infty$, we obtain $$\sum_{i=1}^{k}|x_{i}^{(n)}-x_{i}|^{p}<\epsilon^{p}.$$
-                Since $k$ is arbitrary and the right side does not depend on it, hence whenever $n>t$, we have $$\|x^{(n)}-x\|_{p}\leq \epsilon.$$
-                That is, $x^{(n)}$ converges to $x$.
-                Hence every Cauchy sequence in $(\ell_{p},\|\|_{p})$ converges, hence it is Banach.
+                    Hence $\left|x_{i}^{(n)}-x_{i}^{(m)}\right|<\epsilon$ whenever $m,n>t$, hence $x_{i}^{(n)}$ is a Cauchy sequence in $\mathbb{R}$, hence converges (since $\mathbb{R}$ is complete) to a point, say $x_{i}\in \mathbb{R}$.\\ 
+                    Construct a sequence $x=(x_{1},x_{2}\cdots x_{n},\cdots)$ where $x_{i}$ is defined as above.\\
+                    We need to show that $x\in\ell_{p}$. Since $x^{(n)}$ is a Cauchy sequence, it is bounded, hence there exists a constant $C>0$ such that $$\|x^{(n)}\|_{p}^{p}=\sum_{i=1}^{\infty}\left|x_{i}^{(n)}\right|^{p}\leq C\leq C,~\forall n.$$
+                    Let $k$ be any fixed positive integer. Then, $$\sum_{i=1}^{k}\left|x_{i}^{(n)}\right|^{p}\leq C$$ which implies that $$\sum_{i=1}^{k}\left|x_{i}\right|^{p}\leq C.$$
+                    Since $k$ is arbitrary and the right side does not depend on it, it follows that $$\sum_{i=1}^{\infty}\left|x_{i}\right|^{p}\leq C<\infty.$$
+                    Hence $x\in\ell_{p}$.\\ 
+                    Now we need to show that $x^{(n)}$ converges to $x$. From before, whenever $m,n>t$, we have $$\sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}^{(m)}|^{p}<\epsilon^{p}.$$
+                    Hence, for any positive integer $k$, and whenever $m,n>t$, we have $$\sum_{i=1}^{k}|x_{i}^{(n)}-x_{i}^{(m)}|^{p}<\epsilon^{p}.$$
+                    Fix $n>t$, and take the limit $m\to\infty$, we obtain $$\sum_{i=1}^{k}|x_{i}^{(n)}-x_{i}|^{p}<\epsilon^{p}.$$
+                    Since $k$ is arbitrary and the right side does not depend on it, hence whenever $n>t$, we have $$\|x^{(n)}-x\|_{p}\leq \epsilon.$$
+                    That is, $x^{(n)}$ converges to $x$.
+                    Hence every Cauchy sequence in $(\ell_{p},\|\|_{p})$ converges, hence it is Banach.
                 \end{proof}
         \end{enumerate}
         \phantom\qedhere
