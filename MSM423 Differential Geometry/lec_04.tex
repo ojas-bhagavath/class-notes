@@ -1,0 +1,54 @@
+\lecture{04}{12 Jan 2024 10:30}{Further analysis of Curves}
+\begin{eg}
+    Let $\gamma:I\to\mathbb{R}^{n}$ be a constant speed curve, that is $\gamma'(t)=c~\forall t\in I$. Then it is easy to reparametrize it to a unit speed curve as follows: $$\phi:\frac{I}{c}\to\mathbb{R}^{n}\text{ as }\phi(s)=cs.$$
+\end{eg}
+\vspace{0.4cm}
+\begin{note}
+    Notice that a Jacobian of a function from $\gamma:I\to \mathbb{R}^{n}$ is a linear transformation, and can be represented with a $1\times n$ matrix. Further, each point in $I$, defines such a linear transformation given by the Jacobian at that point. If a curve is regular, that is $\gamma'(t)\neq0~\forall t\in I$, then the Jacobian is non-zero at each piont, hence at each point, we can define a linear space spanned by the span of the Jacobian. This will be relevant later.
+\end{note}
+\vspace{0.4cm}
+\begin{motive}
+    Now we do an analysis of smooth curves that are parametrized by arc length. That is, the smooth curves that are reparametrized using arc length functions. As seen before, these curves are unit speed, and are smooth.
+\end{motive}
+\vspace{0.4cm}
+\begin{definition}[Curvature of a curve parametrized by arc length]
+    Let $\gamma:I\to \mathbb{R}^{3}$ be a curve parametrized by arc length (then it is a unit speed curve smooth as seen before) in $\mathbb{R}^{3}$. Then for a $t\in I$, we define $|\gamma''(t)|=\kappa(t)$ as the curvature of $\gamma$ at $s$.
+\end{definition}
+\vspace{0.4cm}
+\begin{property}
+    \begin{enumerate}[label=\roman*.]
+        \item []
+        \item Since $\gamma$ is a unit speed curve, we have $|\gamma'(t)|^{2}=\gamma'(t)\cdot\gamma'(t)=1$. That implies that $2\gamma'(t)\gamma''(t)=0$, hence $\gamma''(t)$ is perpendicular to $\gamma'(t)$ for all $t\in I$. 
+        \item Now, if $\hat{n}(t)=\frac{\gamma''(t)}{\|\gamma''(t)\|}$ is the unit vector in the direction of $t$, then $\gamma''(t)=\kappa(t)\hat{n}(t)$.
+        \item If $\kappa(t)=0~\forall t\in I$, then $\gamma''(t)=0~\forall t\in I$, then $\gamma(t)=at+b$ for some $a,b\in \mathbb{R}^{3}$, that is, a straight line in $\mathbb{R}^{3}$.
+        \item If $\gamma$ is smooth and $|\gamma''(t)\neq 0$ at a point $t$, then we denote $\gamma'(t)$ at that point as $\hat{t}(t)$. Notice that in such case, $\hat{t}(t)$ and $\hat{n}(t)$ are tangent and normal to the curve to the curve at $\gamma(t)$ respectively, hence they define a subspace (a plane) of $\mathbb{R}^{3}$.
+    \end{enumerate}
+\end{property}
+\vspace{0.4cm}
+\begin{definition}[Osculating plane]
+    Let $\hat{t}(t), \hat{n}(t)$ be as defined as above, then the plane spanned by them is called as the Osculating plane of the curve at $\gamma(t)$. Notice that such a pair of vector and such a plane is defined for each point on the curve $\gamma$.
+\end{definition}
+\vspace{0.4cm}
+\begin{definition}[Bivector]
+    Let the conditions be the same as above, then the vector $\hat{b}(t)=\hat{t}(t)\times\hat{n}(t)$ is called as the Bivector at $t$.
+\end{definition}
+\vspace{0.4cm}
+\begin{remark}
+    \begin{enumerate}[label=\roman*.]
+        \item [] 
+        \item $\{\hat{t}(t),\hat{n}(t),\hat{b}(t)\}$ forms an Orthonrmal basis of $\mathbb{R}^{3}$.
+        \item $\hat{b}(t)$ is smooth.
+        \item If $\hat{b}'(t)=0~\forall t\in I$, then the osculating plane at each point of the curve is the same, that means the whole curve lies on a plane in $\mathbb{R}^{3}$.
+    \end{enumerate}
+\end{remark}
+\vspace{0.4cm}
+\begin{note}
+    Notice that $\hat{b}(t)$ is a cross product of two unit vectors, hence it is a unit vector.\\ 
+    Therefore $|\hat{b}(t)|^{2}=\hat{b}(t)\cdot\hat{b}(t)=1$. Which implies that $2\hat{b}(t)\cdot\hat{b}(t)=0$. Hence $\hat{b}'(t)$ is perpendicular to $\hat{b}(t)$.
+    Hence $\hat{b}(t)\in\text{span}\left(\hat{t}(t),\hat{n}(t)\right)$.
+\end{note}
+\vspace{0.4cm}
+\begin{definition}[Torsion function]
+    Let the conditions be the same as above. The function defined as $\tau(t)=|\hat{b}'(t)|~\forall t\in I$ is called a torsion function.
+\end{definition}
+\vspace{0.4cm}
