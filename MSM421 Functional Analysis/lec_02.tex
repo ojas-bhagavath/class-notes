@@ -68,12 +68,12 @@
             This is usually called as $p$-norm on $\mathbb{R}^{N}$, and the special case when $p=2$ is called the Euclidean norm.
         \end{note}
         Then we need prove the completeness of $(\mathbb{R}^{N},\|\cdot\|_{p})$. First we prove for $p\in[1,\infty)$ case.\\
-        Suppose $x^{(n)}$ is a Cauchy sequence in the NLS. Then for each $\epsilon>0$, there exists a natural number $t$ such that $\|x^{(n)}-x^{(m)}\|_{p}<\epsilon$ whenever $m,n>t$. That is, $m,n>t$ implies that $$\sum_{i=1}^{N}\left|x^{(n)}_{i}-x_{i}^{(m)}\right|^{p}<\epsilon^{p}$$
+        Suppose $x^{(n)}$ is a Cauchy sequence in the NLS. Then for each $\epsilon>0$, there exists a postive integer $t$ such that $\|x^{(n)}-x^{(m)}\|_{p}<\epsilon$ whenever $m,n>t$. That is, $m,n>t$ implies that $$\sum_{i=1}^{N}\left|x^{(n)}_{i}-x_{i}^{(m)}\right|^{p}<\epsilon^{p}$$
         Hence $\left|x_{i}^{(n)}-x_{i}^{(m)}\right|<\epsilon$ whenever $m,n>t$. That means $x_{i}^{(n)}$ is a Cauchy sequence in $\mathbb{R}$, hence converges (since $\mathbb{R}$ is complete) to a point, say $x_{i}\in \mathbb{R}$.\\
         Let $x=(x_{1},x_{2},\cdots,x_{N})\in \mathbb{R}^{N}$, where each $x_{i}$ are defined as above. We claim that $x^{(n)}$ converges to $x$.\\ 
         We have the inequality $|x_{i}^{(n)}-x_{i}^{(m)}|<\epsilon^{p}$ whenever $m,n>t$.\\ 
         Fix $n$, and take the limit as $m\to\infty$, we obtain $|x_{i}^{(n)}-x_{i}|\leq\epsilon^{p}$.\\ 
-        Therefore, after an appropriate adjustment, we obtain an $\epsilon'$, such that for any $\epsilon>0$, there exists a natural number $t$ such that $n>t$ implies that the finite sum satisfies the inequality $$\left(\sum_{i=1}^{N}\left|x_{i}^{(n)}-x_{i}\right|^{p}\right)^{\frac{1}{p}}=\|x^{(n)}-x\|_{p}<\epsilon'$$
+        Therefore, after an appropriate adjustment, we obtain an $\epsilon'$, such that for any $\epsilon>0$, there exists a postive integer $t$ such that $n>t$ implies that the finite sum satisfies the inequality $$\left(\sum_{i=1}^{N}\left|x_{i}^{(n)}-x_{i}\right|^{p}\right)^{\frac{1}{p}}=\|x^{(n)}-x\|_{p}<\epsilon'$$
         Hence $x^{(n)}$ converges to $x$.
         Therefore, every Cauchy sequence in $(\mathbb{R}^{N},\|\cdot\|_{p})$ converges, hence it is a Banach space when $p\in[1,\infty)$.\\ 
         When $p=\infty$, as convergence and Cauchy criterion hold if and only if they hold componentwise in $\mathbb{R}^{N}$, $(\mathbb{R}^{N},\|\cdot\|_{\infty})$ is Banach as well.
@@ -97,13 +97,13 @@
             \item $\bm{\|\cdot\|_{p}}$\textbf{ is a norm on }$\bm{\ell_{p}}$\textbf{.}
                 \begin{proof}
                     The first two axioms of a norm are trivial to prove. We need to show the triangle inequality.\\ 
-                    Let $x,y\in\ell_{p}$, then for any natural number $N$, from \hyperlink{minkowski}{Minkowski's Inequality}, we have $$\sum_{i=1}^{N}|x_{i}+y_{i}|^{p}\leq\left[\left(\sum_{i=1}^{N}|x_{i}|^{p}\right)+\left(\sum_{i=1}^{N}|y_{i}|^{p}\right)\right]^{p}\leq\left[\|x\|_{p}+\|y\|_{p}\right]^{p}<\infty$$
+                    Let $x,y\in\ell_{p}$, then for any postive integer $N$, from \hyperlink{minkowski}{Minkowski's Inequality}, we have $$\sum_{i=1}^{N}|x_{i}+y_{i}|^{p}\leq\left[\left(\sum_{i=1}^{N}|x_{i}|^{p}\right)+\left(\sum_{i=1}^{N}|y_{i}|^{p}\right)\right]^{p}\leq\left[\|x\|_{p}+\|y\|_{p}\right]^{p}<\infty$$
                     Since $N$ is arbitrary, and the right side is independent of the choice of $N$, it follows that $$\sum_{i=1}^{\infty}|x_{i}+y_{i}|^{p}\leq\left[\|x\|_{p}+\|y\|_{p}\right]^{p}<\infty$$
                     Hence the triangle inequality holds, and hence $\|\cdot\|_{p}$ is a norm on $\ell_{p}$.
                 \end{proof}
             \item $\bm{(\ell_{p},\|\cdot\|_{p})}$\textbf{ is a complete space.}
                 \begin{proof}
-                    Let $x^{(n)}$ be a Cauchy sequence in the NLS, that is, for each $\epsilon>0$, there exists a natural number $t$ such that $\|x^{(n)}-x^{(m)}\|_{p}<\epsilon$ whever $m,n>t$. That is, $m,n>t$ implies that $$\sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}^{(m)}|<\epsilon^{p}$$ 
+                    Let $x^{(n)}$ be a Cauchy sequence in the NLS, that is, for each $\epsilon>0$, there exists a postive integer $t$ such that $\|x^{(n)}-x^{(m)}\|_{p}<\epsilon$ whever $m,n>t$. That is, $m,n>t$ implies that $$\sum_{i=1}^{\infty}|x_{i}^{(n)}-x_{i}^{(m)}|<\epsilon^{p}$$ 
                     Hence $\left|x_{i}^{(n)}-x_{i}^{(m)}\right|<\epsilon$ whenever $m,n>t$, hence $x_{i}^{(n)}$ is a Cauchy sequence in $\mathbb{R}$, hence converges (since $\mathbb{R}$ is complete) to a point, say $x_{i}\in \mathbb{R}$.\\ 
                     Construct a sequence $x=(x_{1},x_{2}\cdots x_{n},\cdots)$ where $x_{i}$ is defined as above.\\
                     We need to show that $x\in\ell_{p}$. Since $x^{(n)}$ is a Cauchy sequence, it is bounded, hence there exists a constant $C>0$ such that $$\|x^{(n)}\|_{p}^{p}=\sum_{i=1}^{\infty}\left|x_{i}^{(n)}\right|^{p}\leq C,~\forall n.$$

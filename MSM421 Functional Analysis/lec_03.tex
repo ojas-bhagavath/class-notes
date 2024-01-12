@@ -1,0 +1,56 @@
+\lecture{03}{12 Jan 2024 11:30}{Continuous Linear Operators}
+\begin{eg}
+    Define the set of functions $$C[0,1]:=\{f\mid f:[0,1]\to \mathbb{F}\text{ is a continuous function}\}.$$ Clearly, it is a vector space under the operations of addition of functions and scalar multiplication. Define a function from $C[0,1]$ to $\mathbb{F}$ as $$\|f\|_{\infty}=\sup_{t}|f(t)|.$$
+    Then $(C[0,1],\|\cdot\|_{\infty})$ is a Banach space.
+\end{eg}
+\begin{proof}
+    The first two axioms of norm hold trivially. Now, for any $t\in [0,1]$, due to $|\cdot|$ being a norm on $\mathbb{F}$, it follows that $$|f(t)+g(t)|\leq |f(t)|+|g(t)|.$$
+    If the supremum of $|f(t)+g(t)|$ occurs at $t_{0}$, then $$\|f+g\|_{\infty}=|f(t_{0})+g(t_{0})|\leq f(t_{0})+g(t_{0})\leq\|f\|_{\infty}+\|g\|_{\infty}.$$
+    Hence $\|\cdot\|_{\infty}$ is a norm on $C[0,1]$.\\ 
+    Now to show that the NLS $(C[0,1],\|\cdot\|_{\infty})$ is complete, consider a Cauchy sequence $f_{n}$ in $C[0,1]$. that is, for all $\epsilon>0$, there exists a positive integer $p>0$ such that $m,n>p$ implies that $\|f_{n}-f_{m}\|<\epsilon$. That is, whenever $m,n>p$ it implies that $$\sup_{t}|f_{n}(t)-f_{m}(t)|<\epsilon.$$ 
+    Hence $|f_{n}(t)-f_{m}(t)|<\epsilon$ for each $t$, therefore, for a fixed $t$, the sequence $f_{n}(t)$ is Cauchy in $\mathbb{R}$, and hence converges (since $\mathbb{F}$ is complete) to a point, say $f(t)$.\\ 
+    Define a function $f:[0,1]\to \mathbb{F}$ as $f(t)$ as above. Now we claim that $f\in C[0,1]$. Notice the following: $$|f(t)-f(s)|\leq |f(t)-f_{n}(t)|+|f_{n}(t)-f_{n}(s)|+|f_{n}(s)-f(s)|.$$
+    Since $f_{n}$ converges to $f$, for any $\epsilon>0$, there exists a sufficiently large $n$, such that $|f_{n}(t)-f(t)|<\epsilon$ and $|f_{n}(s)-f(s)|<\epsilon$. Now, since $f_{n}$ is continuous, for any $\epsilon>0$, there exists a $\delta>0$ such that $|s-t|<\delta$ implies that $|f_{n}(t)-f_{n}(s)|<\epsilon$, hence we have, for any $\epsilon>0$, there exists a $\delta>0$ such that $$|s-t|<\delta\implies|f(s)-f(t)|<3\epsilon.$$
+    Hence $f$ is continuous and belongs to $C[0,1]$.\\ 
+    Now, we from the Cauchy criterion, we have, for each $\epsilon>0$, a positive integer $p$ such that $m,n>p$ implies that $$\sup_{t}|f_{n}(t)-f_{m}(t)|<\epsilon.$$
+    Fixing $n>p$, and taking the limit $m\to\infty$, we obtain $|f_{n}(t)-f(t)|\leq\epsilon$ for independent of $t$. Hence for a suitable for any $\epsilon>0$, there exists a suitable $p$ such that $\|f_{n}-f\|_{\infty}<\epsilon$ whenever $n>p$. Hence $f_{n}$ converges to $f$ in the NLS.\\
+    Hence $(C[0,1],\|\cdot\|_{\infty})$ is a Banach space.
+\end{proof}
+\vspace{0.4cm}
+\begin{recall}
+    Linear transformations; matrix representation of linear transformations; examples of linear transformations between finite dimensional vector spaces, between infinite dimensional vector spaces.
+\end{recall}
+\vspace{0.4cm}
+\begin{note}
+    For a function between normed linear spaces, since a normed linear space has a metric induced by the norm, we can talk about sequential definition, $\epsilon-\delta$ definition of continuity. And with the topological structure on the normed linear spaces, we can talk about the inverse image of an open (or closed) set being open (or closed) set definition of continuity. And all of those are equivalent.
+\end{note}
+\vspace{0.4cm}
+\begin{definition}[Continuous Linear Transformation]
+    A continuous linear transformation is what it says on the tin, a linear transformation between two normed linear spaces over the same field, that is also continuous (we can talk about continuity because a normed linear space has an induced topology).\\
+\end{definition}
+\vspace{0.4cm}
+\begin{prop}
+    Let $(V,\|\cdot\|_{v})$ and $(W,\|\cdot\|_{w})$ be normed linear spaces over the same field $\mathbb{F}$, then the following are equivalent.
+    \begin{enumerate}[label=\roman*.]
+        \item $T$ is continuous.
+        \item T is continuous at $0$.
+        \item There exists a positive real number $k$ such that $\|T(x)\|_{w}\leq k\|x\|_{v}~\forall x\in V$.
+        \item $T\left(\overline{B}_{v}(0,1)\right)\subseteq\overline{B}_{w}(0,r)$ for some $r>0$.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    i.$\implies$ii. is obvious.\\ 
+    Suppose ii. is true. Then for any sequence $x_{n}$ converging to $x$ in $V$, the sequence $x_{n}-x$ converges to $0$. Due to continuity of $T$ at $0$, the sequence $T(x_{n}-x)$ in $W$ must converge to $T(0)=0$. That implies that $T(x_{n})$ converges to $T(x)$ in $W$. Hence we have ii.$\implies$i.\\ 
+    Suppose ii. is true. Then for every $\epsilon>0$, we have a $\delta>0$ such that $$\|x\|_{v}<\delta\implies\|T(x)\|_{w}<\epsilon.$$
+    In particular, for $\epsilon = 1$, we obtain a $\delta_{1}$ satisfying the above. Consider $k=\frac{2}{\delta_{1}}$. For any $x\in V\backslash\{0\}$, define $$y=\frac{\delta_{1}}{2}\frac{x}{\|x\|_{v}}.$$
+    Then $\|y\|_{v}=\frac{\delta_{1}}{2}<\delta$, and hence $\|T(y)\|_{w}<\epsilon$. That is, $$\frac{\delta_{1}}{2\|x\|_{v}}\|T(x)\|_{w}<1.$$
+    Upon rearrangement, we obtain $$\|T(x)\|_{w}<\frac{2}{\delta_{1}}\|x\|_{v}=k\|x\|_{v},$$
+    hence we have ii.$\implies$iii.\\ 
+    iii.$\implies$ii. is obvious from the $\epsilon-\delta$ definition of continuity.\\
+    iii$\iff$iv. is obvious after substituting $k=r$.
+\end{proof}
+\vspace{0.4cm}
+\begin{definition}[The space of bounded linear operators]
+    For two normed linear spaces $V,W$ over the same field $\mathbb{F}$, the set $$\mathscr{L}(V,W):=\{T\mid T\text{ is a bounded linear operator from }V\text{ to }W\},$$ then $\mathscr{L}(V,W)$ is a vector space over $\mathbb{F}$. Define a function from $\mathscr{L}(V,W)$ to $\mathbb{F}$ as $$\|T\|=\sup_{x\in\overline{B}(0,1)}\|T(x)\|_{w},$$ then $\|\cdot\|$ is a norm on $\mathscr{L}(V,W)$.
+\end{definition}
+\vspace{0.4cm}
