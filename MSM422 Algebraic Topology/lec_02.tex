@@ -1,0 +1,15 @@
+\lecture{02}{09 Jan 2024 10:00}{Basics of Homotopy Theory}
+\begin{definition}[Sum Topology]
+    Let $\{X_{i},\mathcal{T}_{i}\mid i\in I\}$ be a collection of topological spaces that are pairwise disjoint. Then consider $X=\sqcup_{i\in I}X_{i}$. For each $i\in I$, we have the inclusion $j_{i}:X_{i}\to X$. The final topology on $X$ with respect to the set of functions $\{j_{i}\mid i\in I\}$ is called as the sum topology on $X$.
+\end{definition}
+\vspace{0.4cm}
+\begin{note}
+    Notice that $X_{i}\subseteq X$ are both open and closed in $X$.
+\end{note}
+\vspace{0.4cm}
+\begin{definition}[Quotient Topology with respect to an Equivalence Relation]
+    Let $X$ be a topological space. Let $\sim$ be an equivalence relation on $X$. Let $$Y=\frac{X}{\sim}:=\{[x]\mid x\in X\}$$ be the quotient set (collection of all equivalence classes). Then there exists the natural canonical surjction $$q:X\to \frac{X}{\sim}\text{ given by }q(x)=[x]~\forall x\in X.$$ 
+    Then the final topoology on $Y$ with respect to the funcion $q$ is said to be the quotient topology on $Y$.
+    That is, $U\subseteq Y$ is open if and only if $q^{-1}(Y)$ is open in $X$.
+\end{definition}
+
