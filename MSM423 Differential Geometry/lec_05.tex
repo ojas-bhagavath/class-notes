@@ -1,0 +1,73 @@
+\lecture{05}{15 Jan 2024 10:30}{Frenet–Serret formulae}
+\begin{note}
+    The value $\kappa(t)$ gives the curvature of $\gamma$, that is, it is denotes the straightness of $\gamma$ at $\gamma(t)$. The value of $\tau(t)$ gives the rate of change of osculating plane at $\gamma(t)$, that is, it roughly denotes how fast the osculating plane at a point $t$ is changing when $t$ is varied.
+\end{note}
+\vspace{0.4cm}
+\begin{observe}
+    $$\begin{aligned}
+        \hat{b}(t)&=\hat{t}(t)\times\hat{n}(t)\\ 
+        \implies \hat{b}'(t) &= \hat{t}'(t)\times \hat{n}(t)+\hat{t}(t)\times \hat{n}'(t)\\
+        \implies \hat{b}'(t)&=\gamma''(t)\times \hat{n}(t)+\hat{t}(t)\times \hat{n}'(t)\quad\quad(\because \hat{t}(t)=\gamma'(t))\\
+        \implies \hat{b}'(t)&=0+\hat{t}(t)\times \hat{n}'(t)\quad\quad(\because \gamma''(t)\text{ is parallel to }\hat{n}(t))\\ 
+        \therefore~\hat{b}'(t)&=\hat{t}(t)\times \hat{n}'(t)
+    \end{aligned}$$
+    Therefore, $\hat{b}'(t)$ is perpendicular to $\hat{t}(t)$. Also as $\hat{b}(t)$ is a unit vector, $\hat{b}'(t)$ is perpendicular to $\hat{b}(t)$ as well.\\
+    Now since $\{\hat{t}(t),\hat{n}(t),\hat{b}(t)\}$ is an orthonromal basis, and $\hat{b}'(t)$ is perpendicular to both $\hat{b}(t)$ and $\hat{t}(t)$, it must be along the span of $\hat{n}(t)$.\\
+    And by the way we defined torsion, we have $$\hat{b}'(t)=\tau(t)\cdot \hat{n}(t)$$
+\end{observe}
+\begin{note}
+    So far, we have $\hat{t}'(t)=\kappa(t)\cdot \hat{n}(t)$ and $\hat{b}'(t)=\tau(t)\cdot \hat{n}(t)$.
+\end{note}
+\begin{observe}
+    Notice that $\hat{n}'(t)$ is perpendicular to $\hat{n}(t)$, hence $$\hat{n}'(t)\in\text{span}\{\hat{t}(t),\hat{b}(t)\}.$$
+    Now, we have 
+    $$\begin{aligned}
+        \hat{n}(t)&=\hat{b}(t)\times \hat{t}(t)\\ 
+        \implies \hat{n}'(t)&=\hat{b}'(t)\times \hat{t}(t)+\hat{b}(t)\times \hat{t}'(t)\\
+        \implies \hat{n}'(t)&=(\tau(t)\cdot \hat{n}(t))\times \hat{t}(t)+\hat{b}(t)\times (\kappa(t)\cdot \hat{n}(t))\\
+        \implies \hat{n}'(t)&=-\tau(t)\cdot\hat{b}(t)-\kappa(t)\cdot\hat{t}(t)
+    \end{aligned}$$
+\end{observe}
+\begin{theorem}[Frenet-Seret formulae]
+    From the above observations, we have the set of equations called Frenet-Seret formulae, given by
+    $$
+    \begin{aligned}
+        \hat{t}'(t)&=\kappa(t)\cdot \hat{n}(t)\\ 
+        \hat{n}'(t)&=-\tau(t)\cdot \hat{b}(t)-\kappa(t)\cdot \hat{t}(t)\\
+        \hat{b}'(t)&=\tau(t)\cdot \hat{n}(t)
+    \end{aligned}$$
+    or, in a more concise way, we have 
+    $$
+    \begin{bmatrix}
+        \hat{t}'(t)\\ 
+        \hat{n}'(t)\\ 
+        \hat{b}'(t)
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 & \kappa(t) & 0\\ 
+        -\kappa(t) & 0 & -\tau(t)\\ 
+        0 & \tau(t) & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        \hat{t}(t)\\
+        \hat{n}(t)\\
+        \hat{b}(t)
+    \end{bmatrix}
+    $$
+\end{theorem}
+\vspace{0.4cm}
+\begin{observe}
+    Observe that the set of differential equations in the Frenet-Seret formulae involves a Skew-Symmetric matrix, and also, when we have a non-planar curve, the corresponding $\tau(t)$ and $\kappa(t)$ are non-zero, so usually this is assumed.
+\end{observe}
+\vspace{0.4cm}
+\begin{motive}
+    \begin{itemize}
+        \item []
+        \item Given a smooth unit-speed regular curve, we can always find this set of equations (Frenet-Seret), by finding curvature and torsion functions.
+        \item Given two functions $\kappa(t):I\to \mathbb{R}^{+}$ and $\tau:I\to \mathbb{R}$, can we find a regular unit-speed curve $\gamma(t)$ using the Frenet-Seret equations such that its curvature and torsion coincide with $\kappa$ and $\tau$ respectively?
+        \item Also, if such a curve exists, is it unique?
+        \item Notice that given two such functions, and any initial condition on $\hat{t}, \hat{n}, \hat{b}$, we obtain a set of differential equations.
+    \end{itemize}
+\end{motive}
+
