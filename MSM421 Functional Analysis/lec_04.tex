@@ -1,12 +1,68 @@
 \lecture{04}{15 Jan 2024 11:30}{Operator Norm and Stuff}
 \begin{prop}
-    Let $V$ and $W$ be normed linear spaces over the same field $\mathbb{F}$. Let $T\in \mathscr{L}(V,W)$. Consider the following quanitites 
+    Let $V$ and $W$ be normed linear spaces over the same field $\mathbb{F}$. Let $T\in \mathcal{L}(V,W)$. Consider the following quanitites 
     $$\begin{aligned}
         \|T\|_{op}&:=\sup\left\{\|T(x)\|_{w} : \|x\|_{v}\leq 1\right\}\\
-        \alpha&:=\sup\left\{\|T(x)\|_{w}:\|x\|=1\right\}\\
+        \alpha&:=\sup\left\{\|T(x)\|_{w}:\|x\|_{v}=1\right\}\\
         \beta&:=\sup\left\{\frac{\|T(x)\|_{w}}{\|x\|_{v}}:x\in V\backslash\{0\}\right\}\\
-        \gamma&:=\inf\left\{k:\|T(x)\|_{w}\leq k\|x\|_{v}~\forall x\in V\right\}.
+        \gamma&:=\inf\left\{k>0:\|T(x)\|_{w}\leq k\|x\|_{v}~\forall x\in V\right\}.
     \end{aligned}$$
-    Then $\alpha=\beta=\gamma=\|T\|_{op}$.
+    Then $$\alpha=\beta=\gamma=\|T\|_{op}.$$
 \end{prop}
+\begin{proof}
+    For every $x$ such that $\|x\|_{v}=1$, we have $\|T(x)\|_{w}=\frac{\|T(x)\|_{w}}{\|x\|_{v}}\leq\beta$. Hence we have $\alpha\leq\beta$.\\ 
+    Also notice that
+        $$
+    \begin{aligned}
+        &\|T(x)\|_{w}\leq\alpha\quad\text{whenever $\|x\|_{v}=1$}\\
+        \implies &\left\|T\left(\frac{y}{\|y\|_{v}}\right)\right\|_{w}\leq\alpha\quad\forall y\in V\backslash\{0\}\\ 
+        \implies &\frac{\|T(y)\|_{w}}{\|y\|_{v}}\leq \beta\quad\forall y\in V\backslash\{0\}\\ 
+        \implies &\beta\leq\alpha.
+    \end{aligned}
+    $$
+For any $k>0$ such that $\|T(x)\|_{w}\leq k\|x\|_{v}~\forall x\in V$, then it follows that $\frac{\|T(x)\|_{w}}{\|x\|_{v}}\leq k$.
+Then it is immediate that $\beta\leq k$. Hence we have $\beta\leq\gamma$.\\ 
+We also have $\|T(x)\|_{w}\leq\beta\|x\|_{v}~\forall x\in V$, hence by definition, $\gamma\leq\beta$.\\ 
+Clearly, we have $\alpha\leq\|T\|_{op}$ by definition. Now if for any $k>0$ such that $\|T(x)\|_{w}\leq\|x\|_{v}$ holds, for all $x\in V$, we have the particular case of $\|T(x)\|_{w}\leq k$ when $\|x\|_{v}\leq1$, hence we have $\|T\|_{op}\leq k$, hence we have $\|T\|_{op}\leq\gamma$.\\ 
+Hence we have $$\alpha=\beta=\gamma=\|T\|_{op}.$$
+\end{proof}
+\vspace{0.4cm}
+\begin{note}
+    Notice from iv. point of \hyperlink{prop1}{\textit{Proposition} 1} that a linear operator is continuos if and only if it takes bounded subsets to bounded subsets. So, the collection $\mathcal{L}(V,W)$ is also called as the set of bounded linear operators. And it is sufficient to check boundedness of bounded subsets to claim that an operator is continuous.
+\end{note}
+\vspace{0.4cm}
+\begin{corollary}
+    If $V$ and $W$ are normed linear space over the same field, and if $T:V\to W$ is a continuos linear operator, then for any $x\in V$, we have $$\|T(x)\|_{w}\leq\|T\|_{op}\|x\|_{v}$$
+\end{corollary}
+\vspace{0.4cm}
+\begin{prop}
+    If $(W,\|\cdot\|_{w})$ is a Banach space, then $(\mathcal{L}(V,W),\|\cdot\|_{op})$ is a Banach space.
+\end{prop}
+\begin{proof}
+    Suppose $T_{n}$ is a Cauchy sequence in $(\mathcal{L}(V,W),\|\cdot\|_{op})$. Then for every $\epsilon>0$, there exists a positive integer $t$ such that $\|T_{n}-T_{m}\|_{op}<\epsilon$ whenever $m,n>t$. Now, for any $x\in V$, we have $$\|T_{n}(x)-T_{m}(x)\|_{w}\leq\|T_{n}-T_{m}\|_{op}\|x\|_{v}$$
+    hence if follows that $T_{n}(x)$ is Cauchy in $W$, and (since $W$ is complete), it converges to a point, say $T(x)$. Clearly $T$ hence defined is linear. Now we need to show the boundedness of $T$.\\ 
+    Since $T_{n}$ is Cauchy, it is bounded, hence $\|T_{n}\|_{op}<M$ for some $M>0$.\\
+    Now, for any $x\in V$, we have $$\|T_{n}(x)\|_{w}\leq\|T_{n}\|_{op}\|x\|_{v}\leq M\|x\|_{v}$$\\
+    Passing the limit as $n\to\infty$, we obtain that $\|T(x)\|_{w}\leq M\|x\|_{v}$. Hence $T\in \mathcal{L}(V,W)$.\\
+    Suppose $x$ be vector in the closed unit ball. Then combined with the Cauchy criteria, whenever $m,n>t$, we have the following:
+    $$\begin{aligned}
+        \|T_{n}(x)-T_{m}(x)\|_{w}&\leq\|T_{n}-T_{m}\|_{op}\|x\|_{v}\\ 
+      .                           &<\|T_{n}-T_{m}\|_{op}\\
+                                 &<\epsilon
+    \end{aligned}$$
+    Fixing $n>t$ and taking $m\to\infty$, we obtain $\|T_{n}-T\|_{op}<\epsilon$. Hence $T_{n}$ converges to $T$ in $\mathcal{L}(V,W)$.
+\end{proof}
+\vspace{0.4cm}
+\begin{definition}[Dual Space]
+    The collection of all continuous linear functionals on a normed linear space, equipped with operator norm forms a Banach space, called as the dual space. That is $$V^{*}=\mathcal{L}(V,\mathbb{F})\text{ is called the dual space.}$$
+\end{definition}
+\vspace{0.4cm}
+\begin{definition}[Banach Algebra]
+    Let $V$ be a Banach space, then $\mathcal{L}(V):=\mathcal{L}(V,V)$ defines is a Banach space, and has a third operation of composition, hence forms an algebra.
+\end{definition}
+\vspace{0.4cm}
+\begin{note}
+    If $V$ is a Banach space and $T_{1},T_{2}\in \mathcal{L}(V)$, then $$\|T_{1}T_{2}\|_{op}\leq\|T_{1}\|_{op}\|T_{2}\|_{op}$$
+\end{note}
+
 

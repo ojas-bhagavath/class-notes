@@ -30,13 +30,14 @@
 \end{definition}
 \vspace{0.4cm}
 \begin{prop}
+    \hypertarget{prop1}{
     Let $(V,\|\cdot\|_{v})$ and $(W,\|\cdot\|_{w})$ be normed linear spaces over the same field $\mathbb{F}$, then the following are equivalent.
     \begin{enumerate}[label=\roman*.]
         \item $T$ is continuous.
         \item T is continuous at $0$.
         \item There exists a positive real number $k$ such that $\|T(x)\|_{w}\leq k\|x\|_{v}~\forall x\in V$.
         \item $T\left(\overline{B}_{v}(0,1)\right)\subseteq\overline{B}_{w}(0,r)$ for some $r>0$.
-    \end{enumerate}
+\end{enumerate}}
 \end{prop}
 \begin{proof}
     i.$\implies$ii. is obvious.\\ 
@@ -53,7 +54,10 @@
 \begin{eg}[Operator Norm]
     Let $V$ and $W$ be two normed linear spaces over the same field. On the collection of all linear operators from $V$ to $W$, define an operation as follows:
     If $T$ is a linear operator from $V$ to $W$, then $$\|T\|_{op}:=\sup_{x\in\overline{B}_{v}(0,1)}\|T(x)\|_{w}=\sup\left\{\|T(x)\|_{w} : \|x\|_{v}\leq 1\right\}.$$
-    Consider the set of operators given by $$\mathscr{L}(V,W):=\{T\mid T\text{ is a linear operator from }V\text{ to }W\text{ and } \|T\|_{op}<\infty\}.$$
-    Then $(\mathscr{L}(V,W),\|\cdot\|_{op})$ is a normed linear space, and the norm $\|\cdot\|_{op}$ is called as the operator norm.
+    Consider the set of operators given by $$\mathcal{L}(V,W):=\{T\mid T\text{ is a continuous linear operator from }V\text{ to }W\}.$$
+    Then $(\mathcal{L}(V,W),\|\cdot\|_{op})$ is a normed linear space, and the norm $\|\cdot\|_{op}$ is called as the operator norm.
 \end{eg}
+\begin{proof}
+    $\|\cdot\|_{op}$ being a norm on $\mathcal{L}(V,W)$ follows from follows from $\|\cdot\|_{w}$ being a norm on $W$.
+\end{proof}
 \vspace{0.4cm}
