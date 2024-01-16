@@ -64,5 +64,31 @@ Hence we have $$\alpha=\beta=\gamma=\|T\|_{op}.$$
 \begin{note}
     If $V$ is a Banach space and $T_{1},T_{2}\in \mathcal{L}(V)$, then $$\|T_{1}T_{2}\|_{op}\leq\|T_{1}\|_{op}\|T_{2}\|_{op}$$
 \end{note}
+\vspace{0.4cm}
+\begin{definition}[Contraction]
+    Let $V$ be a normed linear space, linear operator $T\in \mathcal{L}(V)$ is said to be a contraction if $\|T\|_{op}\leq1$.
+\end{definition}
+\vspace{0.4cm}
+\begin{eg}
+    Consider the set of sequences $\ell_{2}$. For all $x=(x_{i})\in\ell_{2}$, define a map $T$ as follows: $$T(x)=\left(\frac{x_{1}}{1},\frac{x_{2}}{2},\cdots,\frac{x_{n}}{n},\cdots\right).$$
+    Notice that $$\|T(x)\|_{2}^{2}=\sum_{i=1}^{\infty}\left|\frac{x_{i}}{i}\right|^{2}\leq\sum_{i=1}^{\infty}|x_{i}|^{2}=\|x\|^{2}<\infty.$$
+    This is a contraction.
+\end{eg}
+\vspace{0.4cm}
+\begin{eg}
+Let $1\leq p\leq\infty$, let $p^{*}$ be the conjugate exponent of $p$. Let $x\in\ell_{p}$ and $y\in\ell_{p*}$. Then define $T_{y}:\ell_{p}\to \mathbb{R}$ as:
+$$T_{y}(x):=\sum_{i=1}^{\infty}x_{i}y_{i}$$
+Then
+$$
+\begin{aligned}
+    |T_{y}(x)|&=\left|\sum_{i=1}^{\infty}x_{i}y_{i}\right|\\
+              &\leq\|x\|_{p}\|y\|_{p*}\quad\text{(H\"older's inequality)}\\ 
+              &=k\|x\|_{p}\quad\quad\quad\text{(Since $y$ is fixed)}
+\end{aligned}
+$$
+Thus, $T_{y}$ is a bounded linear functional on $\ell_{p}$, and $$\|T_{y}\|_{op}\leq\|y\|_{p*}.$$
+We shall later see that this inequality is infact an equality.
+\end{eg}
+\vspace{0.4cm}
 
 
