@@ -1,0 +1,12 @@
+\lecture{04}{15 Jan 2024 11:30}{Operator Norm and Stuff}
+\begin{prop}
+    Let $V$ and $W$ be normed linear spaces over the same field $\mathbb{F}$. Let $T\in \mathscr{L}(V,W)$. Consider the following quanitites 
+    $$\begin{aligned}
+        \|T\|_{op}&:=\sup\left\{\|T(x)\|_{w} : \|x\|_{v}\leq 1\right\}\\
+        \alpha&:=\sup\left\{\|T(x)\|_{w}:\|x\|=1\right\}\\
+        \beta&:=\sup\left\{\frac{\|T(x)\|_{w}}{\|x\|_{v}}:x\in V\backslash\{0\}\right\}\\
+        \gamma&:=\inf\left\{k:\|T(x)\|_{w}\leq k\|x\|_{v}~\forall x\in V\right\}.
+    \end{aligned}$$
+    Then $\alpha=\beta=\gamma=\|T\|_{op}$.
+\end{prop}
+

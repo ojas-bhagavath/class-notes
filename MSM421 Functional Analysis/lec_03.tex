@@ -50,7 +50,10 @@
     iii$\iff$iv. is obvious after substituting $k=r$.
 \end{proof}
 \vspace{0.4cm}
-\begin{definition}[The space of bounded linear operators]
-    For two normed linear spaces $V,W$ over the same field $\mathbb{F}$, the set $$\mathscr{L}(V,W):=\{T\mid T\text{ is a bounded linear operator from }V\text{ to }W\},$$ then $\mathscr{L}(V,W)$ is a vector space over $\mathbb{F}$. Define a function from $\mathscr{L}(V,W)$ to $\mathbb{F}$ as $$\|T\|=\sup_{x\in\overline{B}(0,1)}\|T(x)\|_{w},$$ then $\|\cdot\|$ is a norm on $\mathscr{L}(V,W)$.
-\end{definition}
+\begin{eg}[Operator Norm]
+    Let $V$ and $W$ be two normed linear spaces over the same field. On the collection of all linear operators from $V$ to $W$, define an operation as follows:
+    If $T$ is a linear operator from $V$ to $W$, then $$\|T\|_{op}:=\sup_{x\in\overline{B}_{v}(0,1)}\|T(x)\|_{w}=\sup\left\{\|T(x)\|_{w} : \|x\|_{v}\leq 1\right\}.$$
+    Consider the set of operators given by $$\mathscr{L}(V,W):=\{T\mid T\text{ is a linear operator from }V\text{ to }W\text{ and } \|T\|_{op}<\infty\}.$$
+    Then $(\mathscr{L}(V,W),\|\cdot\|_{op})$ is a normed linear space, and the norm $\|\cdot\|_{op}$ is called as the operator norm.
+\end{eg}
 \vspace{0.4cm}
