@@ -1,0 +1,47 @@
+\lecture{06}{18 Jan 2024 10:30}{Parametrized Surfaces in $\mathbb{R}^{3}$}
+\begin{definition}[Rigid Transformation]
+    Let $S$ be a subset of $\mathbb{R}^{n}$, then a rigid transformation $T$ on $S$ is function such that $$T(x)=\rho(x)+c~\forall x\in S,$$ where $\rho$ is a special orthogonal transformation (orthogonal with determinant 1, preserves orientation), and $c\in \mathbb{R}^{n}$ is a constant.
+\end{definition}
+\vspace{0.4cm}
+\begin{theorem}
+    Let $\kappa:I\to\mathbb{R}^{+}$ and $\tau:I\to \mathbb{R}$, be two smooth functions. Then
+    \begin{itemize}
+        \item There exists a unit speed parametrized curve $\gamma:I\to\mathbb{R}^{3}$ such that the curvature and torsion functions of $\gamma$ are $\kappa$ and $\tau$ respectively.
+        \item If $\gamma_{1}$ and $\gamma_{2}$ are any two curves whose curvature and torsion coincide respectively with the given $\kappa$ and $\tau$, then they are realted to each other by a rigid transformation. That is, $$\gamma_{1}(t)=\rho\circ\gamma_{2}(t)+c~\forall t\in I.$$
+            In other words, the curve corresponding to the given curvature and torsion functions is unique upto a rigid transformation.
+    \end{itemize}
+\end{theorem}
+\vspace{0.4cm}
+\begin{definition}[Parametrized Surfaces]
+    Let $U$ be an open subset of $\mathbb{R}^{2}$. A smooth injective map $\sigma:U\to \mathbb{R}^{n}$ is said to be a parametrized surface in $\mathbb{R}^{n}$.
+\end{definition}
+\vspace{0.4cm}
+\begin{note}
+    Regularity in curves meant that the tangent to the curve at each point was a straight line, and the Jacobian had rank $1$. A surface $\sigma:U\to\mathbb{R}^{3}$, given by $$\sigma(u,v)=(x(u,v),y(u,v),z(u,v)),$$
+    is said to be regular if the Jacobian
+    $$\begin{bmatrix}
+        \frac{\partial x}{\partial u}&\frac{\partial x}{\partial v}\\
+        \frac{\partial y}{\partial u}&\frac{\partial y}{\partial v}\\
+        \frac{\partial z}{\partial u}&\frac{\partial z}{\partial v}
+    \end{bmatrix}$$ has rank $2$ at each point in $U$. That is, the set of vectors $\left\{\frac{\partial\sigma}{\partial u},\frac{\partial\sigma}{\partial v}\right\}$ (they are basically columns of the Jacobian matrix above) is linearly independent.
+\end{note}
+\vspace{0.4cm}
+\begin{definition}[Tangent Space of a Surface at a Point]
+    Let $\sigma:U\to \mathbb{R}^{3}$ be a regular surface, and let $p\in\sigma(U)=S$ be a point on the surface. Then due to $\sigma$ being an injection, there exists a unique $(x_{0},y_{0})\in U$ such that $\sigma(x_{0},y_{0})=p$.\\ 
+    Then the tangent to the surface $S$ at the point $p$ is defined as $$T_{p}(S):=\text{span}\left\{\frac{\partial\sigma}{\partial u}(x_{0},y_{0}),\frac{\partial\sigma}{\partial v}(x_{0},y_{0})\right\}.$$
+    Notice that this is $2$ dimensional subspace of $\mathbb{R}^{3}$ as $\sigma$ is regular.
+\end{definition}
+\vspace{0.4cm}
+\begin{eg}
+    Consider $U\subseteq\mathbb{R}^{2}$ be open, and $\sigma:U\to \mathbb{R}^{3}$ given by $\sigma(u,v)=(u,v,0)$. It is clearly regular, as the Jacobian has rank $2$ and observe that since $U$ is homeomorphic to $\sigma(U)$, every open subset in $\mathbb{R}^{2}$ can be embedded this way as a surface in $\mathbb{R}^{3}$. Also, for any such set, $T_{p}(S)$ will be plane, homeomorphic to $\mathbb{R}^{2}$.
+\end{eg}
+\vspace{0.4cm}
+\begin{eg}
+    Let $\sigma:U\subseteq \mathbb{R}^{2}\to \mathbb{R}^{3}$ be an regular parametrized surface, then for every point $\sigma(u,v)=p$, we have the tangent plane $T_{p}(S)$, and a linear map $\sigma_{*}:\mathbb{R}^{2}\to T_{p}(S)$ given by $$\sigma_{*}(a,b)=a\sigma_{u}+b\sigma_{v}.$$
+\end{eg}
+\vspace{0.4cm}
+\begin{eg}[Spherical Coordinates]
+    Consider the unit sphere in $\mathbb{R}^{3}$. Let $(x,y,z)$ be a point on the sphere. Let $\theta$ be the angle between the vector $(x,y,0)$ and the $x$-axis (called Azimuthal angle). Let $\phi$ be the angle between the vector $(x,y,z)$ and the $z$-axis.\\ 
+    Then each point on the sphere can be uniquely represented using appropriate $\theta$ and $\phi$ as $$(x,y,z)=(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta).$$
+\end{eg}
+\vspace{0.4cm}
